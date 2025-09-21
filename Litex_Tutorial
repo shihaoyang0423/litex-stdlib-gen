@@ -1,0 +1,4376 @@
+<../litex-tutorial/Tutorial/.order>:
+Introduction
+First_Example
+Match_And_Substitution
+Math_Is_Not_A_Programming_Language_So_Is_Not_Litex
+Everyday_Math_In_Litex
+Basic_Knowledge
+Statements
+Declaration_of_Objects
+Fact
+Specific_Facts
+Proposition
+Forall
+Exist
+Equal
+Set
+In
+Not
+Or
+Know
+Named_Universal_Fact
+Function
+Function_Template
+Sequence
+Inline_Statements
+Claim
+Proof
+Special_Proof_Strategies
+Prove_By_Contradiction
+Prove_In_Each_Case
+Prove_By_Induction
+Prove_Over_Finite_Set
+Package
+FAQ
+Appendix_Language_Tradeoffs
+Appendix_Principles_Behind_Litex
+Appendix_Homepage_of_Litex
+Appendix_Keywords
+Appendix_Who_Might_Benefit_From_Litex
+
+<../litex-tutorial/Tutorial/Appendix_Homepage_of_Litex.md>:
+# Appendix: Homepage of Litex
+# Litex: Simply Scale Formal Reasoning
+
+**version v0.1.10-beta (not yet ready for production use)**  
+*Jiachen Shen and The Litex Team*
+
+[![Official Website](https://img.shields.io/badge/Official%20Website-blue?logo=website)](https://litexlang.com)
+[![Github](https://img.shields.io/badge/Github-grey?logo=github)](https://github.com/litexlang/golitex)
+[![Zulip Community](https://img.shields.io/badge/Zulip%20Community-purple?logo=zulip)](https://litex.zulipchat.com/join/c4e7foogy6paz2sghjnbujov/)
+[![Email](https://img.shields.io/badge/Email-red?logo=email)](mailto:litexlang@outlook.com)
+[![Online Playground](https://img.shields.io/badge/Online%20Playground-darkgreen?logo=playground)](https://litexlang.com/playground)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/litexlang/golitex)
+
+
+## Litex: The First Formal Language Learnable in 1–2 Hours
+
+_Simplicity is the ultimate sophistication._
+
+_– Leonardo da Vinci_
+
+[Litex](https://litexlang.com) is a simple and intuitive formal language for coding reasoning. It ensures every step of your reasoning is correct, and is actually the first reasoning formal language (or formal language for short) that can be learned by anyone in 1–2 hours, even without math or programming background.
+
+Scaling formal reasoning has several meanings: 1. Scaling the number of people who can use formal reasoning; 2. Scaling the complexity of the problems that can be solved by formal reasoning. 3. Scaling AI to perform formal reasoning.
+
+Here is a comparison between Litex and traditional formal language Lean. Kids can formalize the multivariate equation in Litex in 2 minutes, while it require an experienced expert hours of work in Lean 4.
+
+<table style="border-collapse: collapse; width: 100%; font-size: 12px">
+  <tr>
+    <th style="border: 2px solid black; padding: 4px; text-align: left; width: 50%;">Litex</th>
+    <th style="border: 2px solid black; padding: 4px; text-align: left; width: 50%;">Lean 4</th>
+  </tr>
+  <tr>
+    <td style="border: 2px solid black; padding: 2px; line-height: 1.5">
+      <code>let x R, y R:</code><br>
+      <code>&nbsp;&nbsp;2 * x + 3 * y = 10</code><br>
+      <code>&nbsp;&nbsp;4 * x + 5 * y = 14</code><br><br>
+      <code>2 * (2 * x + 3 * y) = 2 * 10</code><br>
+      <code>4* x + 6 * y = 2 * 10</code><br>
+      <code>(4*x + 6 * y) - (4*x + 5 * y) = 2 * 10 - 14</code><br>
+      <code>(4*x + 6 * y) - (4*x + 5 * y) = y</code><br>
+      <code>y = 6</code><br>
+      <code>2 * x + 3 * 6 = 10</code><br>
+      <code>2 * x + 18 - 18 = 10 - 18</code><br>
+      <code>2 * x + 18 - 18 = -8</code><br>
+      <code>(2 * x) / 2 = -8 / 2</code><br>
+      <code>(2 * x) / 2 = x</code><br>
+      <code>x = -4</code>
+    </td>
+    <td style="border: 2px solid black; padding: 2px; line-height: 1.5">
+      <code>import Mathlib.Tactic</code><br><br>
+      <code>example (x y : ℝ) (h₁ : 2 * x + 3 * y = 10) (h₂ : 4 * x + 5 * y = 14) : x = -4 ∧ y = 6 := by</code><br>
+      <code>&nbsp;&nbsp;have h₃ : 2 * (2 * x + 3 * y) = 2 * 10 := by rw [h₁]</code><br>
+      <code>&nbsp;&nbsp;have h₄ : 4 * x + 6 * y = 20 := by linear_combination 2 * h₁</code><br>
+      <code>&nbsp;&nbsp;have h₅ : (4 * x + 6 * y) - (4 * x + 5 * y) = 20 - 14 := by</code><br>
+      <code>&nbsp;&nbsp;rw [h₄, h₂]</code><br>
+      <code>&nbsp;&nbsp;have h₆ : (4 * x + 6 * y) - (4 * x + 5 * y) = y := by</code><br>
+      <code>&nbsp;&nbsp;ring</code><br>
+      <code>&nbsp;&nbsp;have h₇ : 20 - 14 = 6 := by norm_num</code><br>
+      <code>&nbsp;&nbsp;have h₈ : y = 6 := by</code><br>
+      <code>&nbsp;&nbsp;rw [←h₆, h₅, h₇]</code><br>
+      <code>&nbsp;&nbsp;have h₉ : 2 * x + 3 * 6 = 10 := by rw [h₈, h₁]</code><br>
+      <code>&nbsp;&nbsp;have h₁₀ : 2 * x + 18 = 10 := by</code><br>
+      <code>&nbsp;&nbsp;rw [mul_add] at h₉</code><br>
+      <code>&nbsp;&nbsp;simp at h₉</code><br>
+      <code>&nbsp;&nbsp;exact h₉</code><br>
+      <code>&nbsp;&nbsp;have h₁₁ : 2 * x = -8 := by</code><br>
+      <code>&nbsp;&nbsp;linear_combination h₁₀ - 18</code><br>
+      <code>&nbsp;&nbsp;have h₁₂ : x = -4 := by</code><br>
+      <code>&nbsp;&nbsp;linear_combination h₁₁ / 2</code><br>
+      <code>&nbsp;&nbsp;exact ⟨h₁₂, h₈⟩</code>
+    </td>
+  </tr>
+</table>
+
+As you can see, traditional formal languages are too complex. Litex lowers the entrance barrier by 10x, lowers the cost of constructing formalized proofs by 10x, making formalization as easy and fast as natural writing. In Litex, there is no foreign keywords, twisted syntax, or complex semantics, just plain reasoning.
+
+The Litex ecosystem is thriving. `pylitex` is the Python package that allows you to call Litex, and at the same time being able to use all the AI tools and scientific computation packages. The smooth integration of Litex into your existing workflow is also the strength of Litex.
+
+Litex is a language full of potential. Join us to build the future of reasoning together!
+
+---
+
+*Visit [Official Website](https://litexlang.com/) to learn more about Litex. Our community is on [Zulip](https://litex.zulipchat.com/join/c4e7foogy6paz2sghjnbujov/). Visit [Tutorial](https://litexlang.com/doc/Tutorial/Introduction) to learn how to use Litex and try some examples. Source code of Litex is on [Github](https://github.com/litexlang/golitex). Source of tutorial is on [Github](https://github.com/litexlang/litex-tutorial). Complete [challenges](https://litexlang.com/collaboration) on the Litex website, or collaborate on a partner project — earn impact rewards! Visit [Start](https://litexlang.com/doc/Start) to start using Litex (online, locally, in Python, in Jupyter Notebook, etc.).*
+
+## Contact & Contribute to Litex
+
+_The best way to predict future is to create it._
+
+_-- Alan Kay_
+
+Hi, I’m Jiachen Shen, creator of Litex. You’re warmly invited to join the Litex community and grow with us. 
+
+Why should you joint us? The reason is simple—Litex is changing the future. There cannot be a reasoning language more concise than Litex, because it is already as close to mathematics as possible. It is both elegant and intellectually engaging. 
+
+For AI researchers, it addresses the most fundamental challenge of the AI era: enhancing reasoning ability while ensuring correctness. For mathematicians, what used to take a year of peer review can now be verified in a second. It may sound like magic, but this is exactly what the formal language Litex makes possible. 
+
+**Litex opens up limitless possibilities for scaling formal reasoning. We are creating the future.**
+
+Our key directions:
+
+Dataset – from elementary problems to IMO, textbooks, and research papers. This dataset powers AI training and reasoning.
+
+Litex + AI – embedding Litex into AI workflows to make reasoning scalable, reliable, and 10x more accessible.
+
+Our source code is on [Github](https://github.com/litexlang/golitex). The source code of the tutorial is on [Tutorial](https://github.com/litexlang/litex-tutorial). The Python package of Litex is [pylitex](https://github.com/litexlang/pylitex)
+
+MAKE MONEY BY CONTRIBUTING! Visit [Task Board](https://litexlang.com/task-board) to earn by solving tasks, or [Collaboration](https://litexlang.com/collaboration) to discuss bigger projects.
+
+Contact me via [email](mailto:litexlang@outlook.com) or join the [Zulip community](https://litex.zulipchat.com/join/c4e7foogy6paz2sghjnbujov/).
+
+## Special Thanks
+
+_Sometimes it is the very people who no one imagines anything of who do the things that no one can imagine._
+
+_– Alan Turing_
+
+Throughout this journey of designing, implementing, and growing Litex into a community, I (Jiachen Shen, creator of Litex) have been fortunate to receive tremendous help from friends and colleagues. Without their support, Litex would not have had the chance to succeed.
+
+I owe special thanks to my coworker Zhaoxuan Hong, who built Litex’s powerful toolchains and has supported the project from the very beginning. 
+
+The Litex project is also deeply grateful to Siqi Sun, Wei Lin, Peng Sun, Jie Fu, Zeyu Zheng, Huajian Xin, Zijie Qiu, Sheng Xu, Siqi Guo, Haoyang Shi, Chengyang Zhu, Chenxuan Huang for their invaluable contributions.
+
+Moreover, I cannot fully express my gratitude to all those who have actively contributed to the Litex community. I am certain this list of special thanks will only grow longer in the future.
+
+We warmly invite you to join us. The best way to predict future is to create it. Let’s build the future together!
+
+<../litex-tutorial/Tutorial/Appendix_Keywords.md>:
+# Appendix: Keywords: Everything Happens Around Them
+
+_Design and programming are human activities; forget that and all is lost._
+
+_-- Bjarne Stroustrup_
+
+The keywords in Litex are almost identical in meaning and usage to the commonly used ones in mathematics. This makes writing in Litex a very pleasant experience.
+
+| Keyword | Meaning |
+|---------|---------|
+| `let` | Define an object without checking its existence. |
+| `prop` | Define a proposition. The verbs of logic. |
+| `know` | Establish a fact |
+| `forall` | Universal quantification |
+| `exist` | Existential quantification |
+| `have` | Introduce an object with checking its existence. |
+| `exist_prop` | Existential quantification with a proposition |
+| `or` | Disjunction |
+| `not` | Negation |
+| `fn` | Define a function without checking its existence |
+| `fn_template` | Define a class of functions |
+| `set` | set: a collection of objects |
+| `in` | membership of an object in a set |
+| `dom` | domain of a proposition, function, function template, etc. |
+| `len`  | length of a set |
+| `finite_set` | a set with a finite number of elements |
+| `prove` | open a local environment to write some statements without affecting the global environment |
+| `claim` | claim a factual statement, prove it here |
+| `prove_by_contradiction` | prove by contradiction |
+| `prove_in_each_case` | prove by case analysis |
+| `prove_by_induction` | prove by mathematical induction |
+| `prove_over_finite_set` | prove a universal statement by iterating over a finite set |
+| `import` | import a file or directory |
+| `exist_in` | exist a object in a set |
+| `set_defined_by_replacement` | define a set by a axiom of replacement |
+| `obj_exist_as_preimage_of_prop` | exist a object as the preimage of a proposition |
+| `obj_exist_as_preimage_of_fn` | exist a object as the preimage of a function |
+| `N` `N_pos` `Z` `Q` `R` `C` `obj` | builtin sets: natural numbers, positive natural numbers, integers, rational numbers, real numbers, complex numbers, objects |
+| `clear` | clear all facts |
+| `set_product` | a product of sets |
+| `proj` | a projection of a set product |
+| `lift` | Point-wise lifting of an operator |
+
+Although these keywords are rarely defined strictly in math textbooks, they are used everyday and everywhere. Litex creator can not find strict definition for keywords like `proposition`, `is`, `in` etc (actually, the word `definition` is also a vague word). He tried his best to make the meaning of these keywords as close to the meaning in our daily math expression, along with his own ideas and understanding, so that Litex is both intuitive and strict.
+
+<../litex-tutorial/Tutorial/Appendix_Language_Tradeoffs.md>:
+# Appendix: Language Tradeoffs
+
+_Everything should be made as simple as possible, but not simpler._
+
+__-- Albert Einstein__
+
+*Simplicity over Generality*: Litex focuses more on simplicity of the language, so that more people can learn to use it. Currently, Litex has built-in support for naive set theory and first-order logic, which is enough for most daily math. If adding certain features (such as higher-order logic) would compromise Litex’s simplicity, we would rather leave them out. Just as Python gave up C’s manual memory management, and Markdown gave up LaTeX’s fine-grained pixel control, Litex gives up generality in exchange for simplicity.
+
+*Simplicity is the single most important consideration in our design. It is more important than any other features like generality, elegance, efficiency, etc.*
+
+__Given enough eyeballs, all bugs are shallow.__
+
+__-- Linus Torvalds__
+
+*Community-Driven Fast Development over Careful Design*: Litex follows the 'worse is better' development model, because this is the most effective way for software to gain impact. We care more about building the community and iterating quickly based on community feedback. No matter how good a feature is, if it cannot be implemented quickly or is not widely requested by the community, we won’t consider it.
+
+*Bugs won't make a software obsolete. What truly kills a software is the lack of users and supporters.*
+
+__We have some freedom in setting up our personal standards of beauty, but it is especially nice when the things we regard as beautiful are also regarded by other people as useful.__
+
+__-- Donald Knuth__
+
+*Pragmatic over Idealistic*: We would rather add features that are useful for daily math than features that are useful for theoretical math which is understood by only a few people on earth. That's why Litex is ended with tex: we want to make it a wide-spread pragmatic language which solves real problems just like tex.
+
+*We are not aiming for a perfect language, but a language that is good enough for most use cases. We also want it to evolve fast to satisfy the changing needs of the community.*
+
+<../litex-tutorial/Tutorial/Appendix_Litex_Is_Turing_Complete.md>:
+# Appendix: Litex is Turing Complete Or Not?
+
+_...an unlimited memory capacity obtained in the form of an infinite tape marked out into squares, on each of which a symbol could be printed. At any moment there is one symbol in the machine; it is called the scanned symbol. The machine can alter the scanned symbol, and its behavior is in part determined by that symbol, but the symbols on the tape elsewhere do not affect the behavior of the machine. However, the tape can be moved back and forth through the machine, this being one of the elementary operations of the machine. Any symbol on the tape may therefore eventually have an innings._
+
+_-- Alan Turing_
+
+One of the greatest joys of maintaining open-source software is being part of a passionate community. Often, people in the community know the language even better than its creator! Some community experts have tried to prove that Litex is Turing-complete from two different perspectives, and here are their code examples. Really thanks to their dedication. We wish more people can join us to make Litex better. Feel free to submit your interesting ideas on [zulip](https://litex.zulipchat.com/join/c4e7foogy6paz2sghjnbujov/)!
+
+Their proof is not fully verified. Feel free to point out anything about their proof!
+
+1. Provided by Chenxuan Huang. He uses SKI combinator to prove the Turing completeness of Litex.
+
+```litex
+have Term nonempty_set
+have I, S, K Term
+fn app(a Term, b Term) Term
+
+have Value nonempty_set
+have I0, K0, S0 Value
+fn K1(a Term) Value
+fn S1(a Term) Value
+fn S2(a Term, b Term) Value
+
+have List nonempty_set
+have Nil List
+fn Cons(x Term, xs List) List
+
+have Machine nonempty_set
+fn M0(x Term, stk List) Machine
+fn M1(x Value, stk List) Machine
+fn M2(x Value) Machine
+
+fn step(m Machine) Machine
+know:
+    # M0 steps down
+    forall x, y Term, l List:
+        step(M0(app(x, y), l)) = M0(x, Cons(y, l))
+    forall l List:
+        step(M0(I, l)) = M1(I0, l)
+        step(M0(K, l)) = M1(K0, l)
+        step(M0(S, l)) = M1(S0, l)
+
+    # M1 perform the combinators' actions
+    step(M1(I0, Nil)) = M2(I0)
+    step(M1(K0, Nil)) = M2(K0)
+    step(M1(S0, Nil)) = M2(S0)
+    forall x Term, l List:
+        step(M1(I0, Cons(x, l))) = M0(x, l)
+        step(M1(K0, Cons(x, l))) = M1(K1(x), l)
+        step(M1(S0, Cons(x, l))) = M1(S1(x), l)
+        step(M1(K0(x), Nil)) = M2(K0(x))
+        step(M1(S1(x), Nil)) = M2(S1(x))
+    forall x, y Term, l List:
+        step(M1(K0(x), Cons(y, l))) = M0(x, l)
+        step(M1(S1(x), Cons(y, l))) = M1(S2(x, y), l)
+        step(M1(S2(x, y), Nil)) = M2(S2(x, y))
+    forall x, y, z Term, l List:
+        step(M1(S2(x, y), Cons(z, l))) = M0(app(app(x, z), app(y, z)), l)
+
+    # M2 ends the evaluation
+    forall x Value:
+        step(M2(x)) = M2(x)
+
+fn evalm(m Machine) Machine
+know:
+    forall x Term, l List:
+        evalm(M0(x, l)) = evalm(step(M0(x, l)))
+    forall x Value, l List:
+        evalm(M1(x, l)) = evalm(step(M1(x, l)))
+    forall x Value:
+        evalm(M2(x)) = M2(x)
+
+have program0 Term
+know:
+    program0 = app(I, K)
+
+# now to execute the program ...
+step(M0(program0, Nil)) = M0(I, Cons(K, Nil))
+evalm(M0(program0, Nil)) = evalm(M0(I, Cons(K, Nil)))
+# add more steps as necessary...
+```
+
+2. Provided by Changyang Zhu. He uses the Y-combinator to prove the Turing completeness of Litex.
+
+```litex
+have Term nonempty_set
+have I, S, K, C_, B, U Term
+fn app(a Term, b Term) Term
+
+# I = Lambda x.x
+# S = lambda xyz.(xz)(yz)
+# K = lambda xy.x
+# C_ = lambda xyz.xzy
+# B = lambda xyz.x(yz)
+# U = lambda x.xx
+
+have Value nonempty_set
+have I0, K0, S0, C0, B0, U0 Value
+fn K1(a Term) Value
+fn S1(a Term) Value
+fn S2(a Term, b Term) Value
+fn C1(a Term) Value
+fn C2(a Term, b Term) Value
+fn B1(a Term) Value
+fn B2(a Term, b Term) Value
+fn U1(a Term) Value
+
+have List nonempty_set
+have Nil List
+fn Cons(x Term, xs List) List
+
+have Machine nonempty_set
+fn M0(x Term, stk List) Machine
+fn M1(x Value, stk List) Machine
+fn M2(x Value) Machine
+
+know:
+    # M0 steps down
+    forall x, y Term, l List:
+        M0(app(x, y), l) = M0(x, Cons(y, l))
+    forall l List:
+        M0(I, l) = M1(I0, l)
+        M0(K, l) = M1(K0, l)
+        M0(S, l) = M1(S0, l)
+        M0(C_, l) = M1(C0, l)
+        M0(B, l) = M1(B0, l)
+        M0(U, l) = M1(U0, l)
+
+    # M1 perform the combinators' actions
+    M1(I0, Nil) = M2(I0)
+    M1(K0, Nil) = M2(K0)
+    M1(S0, Nil) = M2(S0)
+    M1(C0, Nil) = M2(C0)
+    M1(B0, Nil) = M2(B0)
+    M1(U0, Nil) = M2(U0)
+    forall x Term, l List:
+        M1(I0, Cons(x, l)) = M0(x, l)
+        M1(U0, Cons(x, l)) = M0(app(x, x), l)
+        M1(K0, Cons(x, l)) = M1(K1(x), l)
+        M1(S0, Cons(x, l)) = M1(S1(x), l)
+        M1(C0, Cons(x, l)) = M1(C1(x), l)
+        M1(B0, Cons(x, l)) = M1(B1(x), l)
+        M1(K0(x), Nil) = M2(K0(x))
+        M1(S1(x), Nil) = M2(S1(x))
+        M1(C1(x), Nil) = M2(C1(x))
+        M1(B1(x), Nil) = M2(B1(x))
+    forall x, y Term, l List:
+        M1(K0(x), Cons(y, l)) = M0(x, l)
+        M1(S1(x), Cons(y, l)) = M1(S2(x, y), l)
+        M1(C1(x), Cons(y, l)) = M1(C2(x, y), l)
+        M1(B1(x), Cons(y, l)) = M1(B2(x, y), l)
+        M1(S2(x, y), Nil) = M2(S2(x, y))
+        M1(C2(x, y), Nil) = M2(C2(x, y))
+        M1(B2(x, y), Nil) = M2(B2(x, y))
+    forall x, y, z Term, l List:
+        M1(S2(x, y), Cons(z, l)) = M0(app(app(x, z), app(y, z)), l)
+        M1(C2(x, y), Cons(z, l)) = M0(app(app(x, z), y), l)
+        M1(B2(x, y), Cons(z, l)) = M0(app(x, app(y, z)), l)
+
+have Y Term
+know:
+    Y = app(app(B, U), app(app(C_, B), U))
+
+have F Term
+
+have program Term
+know:
+    program = app(Y, F)
+
+# Hereby we noticed that "step" and "evalm" are only symbols that require transitivity
+# Thus we use "=" to simplify the program
+# You can expand it to "step" and "evalm" if you want
+
+know forall a, b Term: M0(a, Nil) = M0(b, Nil) => a = b
+=:
+    M0(program, Nil)
+    M0(app(Y, F), Nil)
+    M0(app(app(app(B, U), app(app(C_, B), U)), F), Nil)
+    M0(app(app(B, U), app(app(C_, B), U)), Cons(F, Nil))
+    M0(app(B, U), Cons(app(app(C_, B), U), Cons(F, Nil)))
+    M0(B, Cons(U, Cons(app(app(C_, B), U), Cons(F, Nil))))
+    M1(B0, Cons(U, Cons(app(app(C_, B), U), Cons(F, Nil))))
+    M1(B1(U), Cons(app(app(C_, B), U), Cons(F, Nil)))
+    M1(B2(U, app(app(C_, B), U)), Cons(F, Nil))
+    M0(app(U, app(app(app(C_, B), U), F)), Nil)
+    M0(U, Cons(app(app(app(C_, B), U), F), Nil))
+    M1(U0, Cons(app(app(app(C_, B), U), F), Nil))
+    M0(app(app(app(app(C_, B), U), F), app(app(app(C_, B), U), F)), Nil)
+
+=:
+    M0(app(app(app(C_, B), U), F), Nil)
+    M0(app(app(C_, B), U), Cons(F, Nil))
+    M0(app(C_, B), Cons(U, Cons(F, Nil)))
+    M0(C_, Cons(B,Cons(U, Cons(F, Nil))))
+    M1(C0, Cons(B,Cons(U, Cons(F, Nil))))
+    M1(C1(B), Cons(U, Cons(F, Nil)))
+    M1(C2(B, U), Cons(F, Nil))
+    M0(app(app(B, F), U), Nil)
+
+app(app(app(C_, B), U), F) = app(app(B, F), U)
+
+=:
+    M0(program, Nil)
+    M0(app(app(app(app(C_, B), U), F), app(app(app(C_, B), U), F)), Nil)
+    M0(app(app(app(B, F), U), app(app(B, F), U)), Nil)
+    M0(app(app(B, F), U), Cons(app(app(B, F), U), Nil))
+    M0(app(B, F), Cons(U, Cons(app(app(B, F), U), Nil)))
+    M0(B, Cons(F, Cons(U, Cons(app(app(B, F), U), Nil))))
+    M1(B0, Cons(F, Cons(U, Cons(app(app(B, F), U), Nil))))
+    M1(B1(F), Cons(U, Cons(app(app(B, F), U), Nil)))
+    M1(B2(F, U), Cons(app(app(B, F), U), Nil))
+    M0(app(F, app(U, app(app(B, F), U))), Nil)
+
+=:
+    M0(app(U, app(app(B, F), U)), Nil)
+    M0(U, Cons(app(app(B, F), U), Nil))
+    M0(app(app(app(B, F), U), app(app(B, F), U)), Nil)
+    M0(program, Nil)
+
+app(U, app(app(B, F), U)) = program
+
+=:
+    M0(program, Nil)
+    M0(app(F, app(U, app(app(B, F), U))), Nil)
+    M0(app(F, program), Nil)
+
+program = app(F, program)
+app(Y, F) = app(F, app(Y, F))
+
+# Thus, we've proved the property of Y-combinator
+# Y F = F(Y F)
+```
+
+<../litex-tutorial/Tutorial/Appendix_Principles_Behind_Litex.md>:
+# Appendix: Principles Behind Litex
+
+_Everyday spent on Litex is a day for new adventure._
+
+_- Litex creator Jiachen Shen_
+
+This file contains principles behind Litex from the Litex creator. Read it for pleasure instead of for any practical purpose. My descriptions and wording here may be somewhat vague, because the development of the whole project is essentially the process of turning vague ideas into clear ones. In fact, vague ideas often hint at the possibility of many more directions for growth, which is not yet explored.
+
+1. You just learned how Litex builds math from basic pieces, like building blocks. To sum up, `match and substitution` is the basic way of deriving new facts from established ones. We can construct the whole math system by this way in Lite as long as basic arithmetic and counting are built-in. There are exceptions. Facts about symbols with literal information (e.g. numbers like 1, 2, 3, counting etc) are not verified in this way. Facts related to counting are not verified in this way. There are and only these two exceptions. Those facts are verified by Litex's builtin rules, the user does not need to worry about them.
+
+2. Voltaire once said: "Common sense is not so common." In the case of Litex, Litex makes the process of building math as easy as `ctrl+f & ctrl+r /cmd+f & cmd+r` in your browser, by discovering that math is nothing but a special kind of `match and substitution` problem. Everyone is so familiar with this process, but almost no one actually finds its significance and use this idea to create a simple formal language. The real magic of Litex is that it works just like how people think in daily life. This is a hard magic for the language designer, because it requires a deep understanding of both the nature of mathematics and the nature of programming, but is worth the effort.
+
+3. In naive set theory, where almost all daily math is based on, all facts are derived by `match and substitution` using first-order logic, with only two exceptions: 1. mathematical induction. 2. the axiom of replacement. Those two are builtin in Litex. Since high-order logic is "passing proposition as parameter to another proposition", facts about high-order logic are still verified by `match and substitution`. Litex will implement high-order logic in the future. If you are still worried about whether Litex is rigorous, the Litex kernel prints out how it verifies the statement, so you can see how it works.
+
+4. Litex is a very simple language to learn. In fact, I am not sure whether I should use "learn" to describe it. Most of Litex language features are so common sense that we use it everyday to reason. I guess people can not "learn" what they have already known! A lot of people may think math is hard, but what Litex does is to make math as easy as `ctrl+f & ctrl+r /cmd+f & cmd+r` in your browser. Let more people find pleasure in the wonderful world of math!
+
+5. Carful readers may worry the foundation of Litex is shaky, because `match and substitution` is not a very rigorous concept. They might think Type theory, where Lean is based on, is more solid. I disagree. First, the kernel of type system in Lean is just a huge piece of C++ code, doing `match and substitution`. Second, no matter what mathematical foundation a traditional formal language is based on (in the case of Lean, it is Type theory), it is still a programming language, which is no different from Python. The syntax style of Lean makes it sort of easier to write formal proofs, but it is still very very far from what we are truly thinking when we are doing math, because the semantics of Lean is still a programming language. All language designers agree it is the semantic that matters more, not the syntax. Litex has a semantics designed to be as close to the way we think in daily life as possible.
+
+6. Just as Litex draws inspiration from Python's syntax, here we use the Zen of Python to suggest a recommended style for Litex.
+
+```
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+```
+
+7. The Litex kernel is much larger than Lean's kernel. There are two reasons for that. First, there are multiple ways to build the foundations of mathematics. Litex uses set theory, while Lean uses type theory. Although the two are logically equivalent, type theory is more abstract. This abstraction helps keep the Lean kernel small, but also makes it harder for users to understand. Since most people are introduced to set theory in high school, it is not ideal to use type theory as the foundation if the goal is to make a formal language widely accessible. Second, Lean is a programming language. Because it is Turing-complete, Lean shifts the responsibility of implementing low-level logic to the user. This means that users must essentially build parts of the system themselves before they can even begin verifying their own statements — and there's no guarantee that their implementation is correct. In contrast, Litex handles low-level logic within the kernel itself. This allows users to focus entirely on expressing and verifying their ideas, and it makes Litex both easier to use and computationally more efficient than most other formal languages. Every design choice in Litex is made with user-friendliness as the top priority. Litex is focused solely on verification, which dramatically simplifies the user experience. For example, the Litex kernel automatically searches for established facts, so users don’t need to name them or remember which ones they’re using. In Lean or Coq, this kind of support doesn’t exist — the user must essentially reimplement a Litex-like kernel by hand before verification can even begin. This burden should not fall on the user.
+
+8. Litex has a symbolic view of math. The process of  `match and substitution` cares about what a symbol is, not what a symbol means.
+
+9. Prolog vs. Litex: Prolog is the programming language that is most similar to Litex.
+
+Similarities
+
+Both use match & substitution to derive facts.
+
+Both support ∃ and ∀ quantification.
+
+Differences
+
+Unknown = false in Prolog; unknown = unknown in Litex.
+
+Prolog = programming language; Litex = reasoning language.
+
+Prolog has no types; Litex has simple set system.
+
+Prolog is complex; Litex is intuitive and simple.
+
+Technical: Litex names ∃, avoids deadlocks, and allows nameless ∀.
+
+10. Evolution and Development of Litex
+
+_Cross the river by feeling the stones._
+
+_-- Chinese Proverb_
+
+_Quantity changes lead to quality changes._
+
+_-- Hegel_
+
+_Worse is better._
+
+_-- A Famous Software Development Proverb_
+
+_Estimated number of users of C++ is 1 in 1979, 16 in 1980, 38 in 1981, 85 in 1982, ..., 150000 in 1990, 400000 in 1991. In other words, the C++ user population doubled every 7.5 months or so._
+
+_-- Bjarne Stroustrup, A History of C++: 1979-1991_
+
+Litex takes a use-driven, example-first approach to formalization. Instead of building on sophisticated theories, at its invention stage, the creator of Litex evolves it by trying to express real mathematical texts, like Tao's *Analysis I* or Weil's *Number Theory for Beginners* in Litex. When something is hard or impossible to formalize using existing features, it grows new language features (syntactically and semantically) to make expression natural. Any time the creator of Litex feels that the language is not expressive enough, he will add new features to make it more expressive. 
+
+Sometimes the new feature covers the functionalities of the old one and the old one is replaced by the new one. This trial-and-error, practice-guided development makes Litex uniquely adaptable and intuitive. Any feature is added with careful test about whether it is as useful and intuitive as possible and whether it is not harmful to the existing features. In most cases, a feature either works as a syntactic sugar which significantly improves the readability and writing experience of the code, or it is a new feature that is necessary for the user to express certain types of logic.
+
+Litex is designed to serve users. It is not an academic experiment to design the perfect formal language. It is a practical tool to help users formalize their math, train their AI models, and other tasks. Thus to fulfill its mission, Litex has to grow with its users. 
+
+Litex development follows the humble [worse is better](https://www.dreamsongs.com/RiseOfWorseIsBetter.html) philosophy. Think about it: JavaScript made every mistake in its design as a programming language while it did everything right to make itself one of the most influential programming languages in the world by serving its users' most urgent needs: the language of the Internet. Litex is not perfect, but it is pragmatic enough.
+
+It's hard to know how to implement Litex. It's even harder to know what to implement, how different language features work together with one another. Since Litex is so different, the creator of Litex has to try to implement it by trial-and-error instead of following any existing theories or just mimicking existing formal languages. Litex is rooted in its unique and simple (However, this simplicity is not easy to achieve.) ideas, not theories.
+
+The creator of Litex wishes Litex to obtain adoption exponentially, like C++ and other programming languages did. It does not need a glorious beginning, but it needs a strong engine to grow. Compared with potential number of users of formal languages, all traditional formal languages are tiny. Litex wants to change that.
+
+That is why Litex really needs YOUR help: to use it, to spread the word about it, to contribute to it, to improve it, to make it better.
+
+
+
+<../litex-tutorial/Tutorial/Appendix_Who_Might_Benefit_From_Litex.md>:
+# Appendix: Who Might Benefit From Litex
+
+_The only way to do great work is to love what you do._
+
+_-- Steve Jobs_
+
+Litex is for everyone. Here are some people who might especially benefit from Litex.
+
+1. AI researchers. Researchers from OpenAI, Google, Alibaba, DeepSeek, etc are exploring the loop of model itself writes a question, itself solves, and in this way, the model itself improves itself. This is a very promising direction. They need something to tell whether the reasoning process is correct. Litex can be used to ensure the correctness of the reasoning process as long as the reasoning process is formalized in Litex. This makes Litex a very fundamental infrastructure for AI. At the same time, AI safety researchers need to ensure the safety of the output of the model, and now they are turning to formal languages for help. As models are becoming more and more powerful and dangerous, the need for formal languages is becoming more and more urgent. 
+
+2. Mathematicians. As we all know, a small piece of error in a proof can lead to a huge disaster, while somehow human beings still manage to push the frontier of math to a very high level. This is truly remarkable. That is why I am excited to see what we can do with Litex, a power tool ensuring the correctness of any piece of reasoning and saving mathematicians from the tedious work of proof checking. Mathematicians can finally work together with a stranger and the Litex kernel gives you the certificate of correctness of his/her contribution. The scale of collaboration, the scale of mathematical discovery, and the scale of mathematical knowledge are all going to be scaled up to a new level that nobody can imagine.
+
+## Applications of Formal Reasoning in AI and Many Other Fields
+
+The goal of Litex is to scale reasoning at this AI era by making it more accessible to everyone. Litex scales reasoning in three ways:
+
+**Engineering:** Like software engineering, Litex turns individual math work into **mathematical engineering** through clear abstraction and composition. Writing math in Litex can be as simple as writing code in Python.
+
+**Accessibility:** Being much simpler than other formal languages, Litex enables **more people** to participate in formal reasoning, from children to experts.
+
+**AI Integration:** Litex provides the perfect **infrastructure for AI** to learn and perform formal reasoning at scale.
+
+
+## AI
+
+AI research is shifting from data-driven learning to formal-language-driven reinforcement learning in 2025. With dataset exhaustion becoming common, companies are adopting formal language approaches for self-improving AI systems, inspired by AlphaZero's self-play methodology.
+
+1. [DeepSeek-R1](https://arxiv.org/abs/2501.12948): DeepSeek-R1 uses formal language as value function for Reinforcement Learning, making their model extremely efficient and accurate.
+
+2. [AlphaProof](https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/): AlphaProof uses formal language to formulate problems, solve them, and improve the model based on formal language interpreter output. It is a good example of how a model self iteratively improves itself. It achieves silver medal level in IMO, which is super-human level in math.
+
+3. [AlphaGeometry](https://deepmind.google/discover/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/): AlphaGeometry is another example of how a model self iteratively improves itself. It achieves gold medal level in IMO geometry problems, which is super-human level in math.
+
+4. [Safeguarded AI](https://www.aria.org.uk/opportunity-spaces/mathematics-for-safe-ai/safeguarded-ai/): The applications of formal reasoning in AI safety is drawing more and more attention, and this is one of the first AI safety organizations to pay attention to formal reasoning. Turing award recipient Yoshua Bengio joins Safeguarded AI as Scientific Director.
+
+5. [Formal Mathematical Reasoning: A New Frontier in AI](https://arxiv.org/abs/2412.16075): This article argues AI-driven discovery in science, engineering, and beyond can be accelerated by the adoption of formal reasoning.
+
+## Math
+
+As modern math is becoming more and more abstract and complicated, the math community is turning to new methods to manage the complexity. On one hand, they turn to AI to make new propositions and even generate new theorems. On the other hand, they turn to formal reasoning to verify the correctness of their proof and scale mathematical collaboration.
+
+1. [Machine Assisted Proof](https://terrytao.wordpress.com/wp-content/uploads/2024/03/machine-assisted-proof-notices.pdf): In this article, Fields Medalist Terence Tao forecasts the great potential of the combination of formal reasoning and machine learning in math.
+
+2. [Mathematics and the formal turn](https://arxiv.org/pdf/2311.00007): In this article, Lean advisory board member Jeremy Avigad argues that the formal turn in mathematics holds a lot of promise and the new technology will undoubtedly alter our conception what it means to do mathematics
+
+3. [Terrence Tao on Lex Fridman Podcast](https://www.youtube.com/watch?v=HUkBz-cdB-k&t=5400s): In this podcast, Fields Medalist Terence Tao discusses the potential of formal reasoning in math.
+
+<../litex-tutorial/Tutorial/Basic_Knowledge.md>:
+# Basic Knowledge: Everyday Math, the Litex Way
+
+_Common Sense Is Not So Common_
+
+_— Voltaire_
+
+## Numbers
+
+Numbers like `0`, `3.14159`, `-1` are recognized directly in Litex.
+You can use them without any special declaration. Litex has built-in support for numeric literals, basic arithmetic, and comparisons. For example:
+
+```litex
+1 + 1 = 2
+0 * 4 + (9 - 3) * (2 - 1) = 6
+2 != 3
+3 > 0
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 = 55
+```
+
+* **Functional operators** like `+`, `-`, `*`, `/`, `%`, `^` are built-in.
+* **Factual operators** like `=`, `!=`, `>`, `<`, `>=`, `<=` are also built-in.
+
+## Symbolic Arithmetic
+
+Polynomials appear everywhere in mathematics.
+Unlike many formal languages, Litex has **native support for polynomials**, making them much easier to write and read.
+
+For example:
+
+```litex
+have x R, y R, z R
+(x + z * z) * (x + 7 * y) = x * x + 7 * y * x + z * x * z + y * (3 + 4) * z * z
+```
+
+## Basic Set
+
+Since modern mathematics is built on set theory, Litex provides built-in support for many commonly used sets:
+
+* `N`: natural numbers
+* `N_pos`: positive natural numbers
+* `Z`: integers
+* `Q`: rational numbers
+* `R`: real numbers
+* `C`: complex numbers
+
+Many fundamental facts about these sets are also built into Litex. For example:
+
+```litex
+17 $in N
+-47 + 17 $in Z
+17.17 $in Q
+forall x Q => x $in R
+```
+
+Here:
+
+* `17` is a natural number.
+* `-47 + 17` is an integer.
+* `17.17` is a rational number.
+* Every rational number is also a real number.
+
+## A Simple Example
+
+Let’s see how to formalize and solve a system of multivariate equations step by step:
+
+```litex
+let x R, y R:
+    2 * x + 3 * y = 10
+    4 * x + 5 * y = 14
+
+2 * (2 * x + 3 * y) = 2 * 10
+4* x + 6 * y = 2 * 10
+(4*x + 6 * y) - (4*x + 5 * y) = 2 * 10 - 14
+(4*x + 6 * y) - (4*x + 5 * y) = y
+y = 6
+2 * x + 3 * 6 = 10
+2 * x + 18 - 18 = 10 - 18
+2 * x + 18 - 18 = -8
+(2 * x) / 2 = -8 / 2
+(2 * x) / 2 = x
+x = -4
+```
+
+Step by step, we find:
+
+$$
+y = 6, \quad x = -4
+$$
+
+## Comment
+
+Litex support to add one-line Comment by symbol `# ` and multi-line Comment by symbol `"""`:
+
+```litex
+# claim an Object x in R and make x > 1
+let x R:
+    x > 1
+```
+
+```litex
+"""
+some comment
+some comment
+some comment
+"""
+```
+
+Comments are very helpful for you to understand the code and for the system to check your code.
+
+## Wrap-Up
+
+Looks simple, doesn’t it? Litex is designed to be **concise, readable, and close to everyday math**.
+
+At first, you might still make mistakes when writing your own proofs — and that’s perfectly fine. In this short tutorial, we’ll guide you through everything you need to know about Litex, so you can confidently express and verify mathematics the Litex way.
+
+<../litex-tutorial/Tutorial/Claim.md>:
+## Claim: Organize Your Proof into Sub-Proofs
+
+_The most fundamental problem in software development is complexity. There is only one basic way of dealing with complexity: divide and conquer._
+
+_— Bjarne Stroustrup_
+
+Math is hard. It is important to organize your proof well. The best way to do so is to divide a long proof into a series of independent sub-proofs and then combine them together. We call it `divide and conquer`, which is also a common strategy in many other tasks like building a house, writing code, etc. In such case, `claim` keyword can help you.
+
+## Use of `claim`
+
+```
+claim:
+    fact_you_want_to_prove
+    prove:
+        ....
+```
+
+`fact_you_want_to_prove` can be a specific fact or a universal fact.
+
+For example
+
+``` litex
+exist_prop x N st exist_natural_number_larger_than(y N):
+    x > y
+
+claim:
+    $exist_natural_number_larger_than(1)
+    prove:
+        let x N: x = 2
+        2 > 1
+        x > 1
+        exist x st $exist_natural_number_larger_than(1)
+        $exist_natural_number_larger_than(1)
+
+$exist_natural_number_larger_than(1) # true, because $exist_natural_number_larger_than(1) is proved in the claim statement
+# x = 2 is not visible out of the prove block, because x is declared in the prove block locally
+```
+
+When proving a specific fact, you can use `prove` block to prove it. After all statements in `prove` block are executed, Litex will check if `fact_you_want_to_prove` is true.
+
+You can also claim a universal fact. This is exactly how mathematicians keep their proofs clean.
+
+```litex
+prop g(x R)
+prop s(x R)
+prop q(x R)
+
+know:
+    forall x R: $g(x) => $s(x)
+    forall x R: $s(x) => $q(x)
+
+claim:
+    forall x R: $g(x) => $q(x)
+    prove:
+        $s(x)
+        $q(x)
+```
+
+The `claim forall` construct works as follows:
+
+* It creates a **new local proof environment**.
+* In this environment, the domain assumptions are set to `true` by default.
+* All statements inside the block are then executed.
+* Once the `prove` block finishes, Litex checks whether the conclusion of the universal statement has indeed been derived.
+
+  * If yes, the proof is complete.
+  * If not, Litex reports an error.
+* Afterward, the universal fact is added to the **global environment**, while the intermediate steps inside the `prove` block do **not** affect the global state.
+
+*This mirrors the real process of solving a math problem: you are given a set of objects and assumptions, and your task is to prove a conclusion. In Litex, this is formalized exactly as a `claim forall` statement.*
+
+You can use `claim` to make something affect part out of the Prove sub-environment:
+
+```litex
+claim:
+    @p(x N):
+        x > 1
+        =>:
+            x > -1
+    prove:
+        $larger_is_transitive(x, 1, -1)
+        x > -1
+
+let a N:
+    a > 1
+$p(a)
+a > -1
+```
+
+`larger_is_transitive(x, y, z R)` is a built-in Proposition of Litex that means: x, y, z in R, x > y and y > z <=> x > z. You claimed a Proposition `p(x N)` in Claim block and prove it in Prove block. But you can still use it out of the sub-environment.
+
+## Proof by Contradiction
+
+`prove_by_contradiction` should always by used in Claim block. Here is a classical example, prove sqrt(2) is irrational using Proof by Contradiction:
+
+
+
+<../litex-tutorial/Tutorial/Declaration_of_Objects.md>:
+# Declaration of Objects: The Nouns of Logic
+
+_Mathematics is nothing more than a game played according to certain simple rules with meaningless marks on a paper._
+
+_— David Hilbert_
+
+Modern mathematics is built on set theory. In Litex, to stay consistent with this foundation, whenever you declare a new object, you must also specify the set it belongs to.
+
+```litex
+have a N, b Q, c R
+let e N, f Q, g R
+```
+
+There are two main ways to declare an object:
+
+1. **`have`** – the *safe* way. The set must be non-empty (i.e., `$exist_in(setName)` must be true, such as `$exist_in(R)`), or the set must be explicitly declared as a `set` or `nonempty_set`.
+
+   > Note: `set $in set` is **not** true in Litex, as this would violate the rules of set theory.
+
+2. **`let`** – the *unsafe* way. The set which the object belongs to might be empty, and you can even attach arbitrary properties to the object.
+
+## The Power (and Danger) of `let`
+
+The simplest usage is to assign a known property:
+
+```litex
+let a N: a = 2
+```
+
+But `let` can also bind *contradictory* or unsafe properties:
+
+```litex
+let a N: a = 2, a = 3
+```
+
+What? `a` is both 2 and 3? Yes. In Litex, `let` is intentionally powerful and allows you to bind **any** properties to an object.
+
+Why such freedom? Because when defining **axioms** and making **assumptions**, this flexibility is essential.
+
+For example, the existence of the empty set is itself an axiom:
+
+```litex
+let self_defined_empty_set set: forall x obj => not x $in self_defined_empty_set
+```
+
+### Declare objects when self-defined existential fact is true
+
+`have` keyword can work together with existential facts.
+
+```
+have object1, object2, ... st $existential_fact(param1, ...)
+```
+
+When `$existential_fact(param1, ...)` is true, the `have` statement above works. The new objects `object1, ...` are declared, with corresponding properties based on the definition of `existential_fact`
+
+For example
+
+```litex
+exist_prop x R st exist_number_larger_than(y R):
+    x > y
+
+exist 17 st $exist_number_larger_than(1)
+
+$exist_number_larger_than(1)
+
+have a st $exist_number_larger_than(1)
+
+a $in R
+a > 1
+```
+
+In this case, We use `17` to prove `$exist_number_larger_than(1)` and `have a st $exist_number_larger_than(1)` declares an object a with properties `a $in R` and `a > 1`. Notice `a = 17` is unknown, because `have` statement is choosing from one of the objects which satisfies the properties of `exist_number_larger_than`.
+
+### Have Finite Set by Enumeration
+
+When we were children, the first thing we learn about math is counting from `1` to `5`. Litex thus allows you to define a set by enumeration. (Do not underestimate enumeration: in fact, the very reason we are able to define a finite set by enumeration is guaranteed by the axioms of set theory — and this is something quite profound.)
+
+```litex
+have set one_to_five := {1,2,3,4,5}
+```
+
+If a set is finite, then to prove that forall x in this set some property holds, we can simply check each element one by one. In this way, unlike the general case of infinite sets, the conclusion can be obtained by directly traversing all the elements in the set.
+
+```
+prove_over_finite_set:
+    forall x one_to_five:
+        or(x = 1, x = 2, x = 3, x = 4, x = 5)
+    prove:
+
+```
+
+As you can see, when there is nothing to prove, you can write nothing in the `prove` section (`or(x = 1, x = 2, x = 3, x = 4, x = 5)` is immediately true we x is in one_to_five).
+
+### Have A Set As A Subset Of Another Set Whose Items Have Certain Properties
+
+Often, we are given a set, and we want to get a subset of that set whose items have certain properties. i.e. y∈ {x∈A: P(x) is true} <=> (y∈A and P(y) is true).
+
+How to define {x∈A: P(x) is true} ?
+
+```litex
+prop P(x R)
+
+have set s := x R:
+    $P(x)
+```
+
+## Declaring Objects with `let`
+
+In mathematics, anything can be treated as an *object*. To use an object in Litex, you must declare it first.
+
+```
+let object_name set_name
+```
+
+Example:
+
+```litex
+let n N
+```
+
+Here `n` is an object in the natural numbers `N`.
+
+* Objects must be declared before use.
+* Object names must be unique. You cannot `let a N` twice.
+
+You can declare multiple objects at once:
+
+```litex
+let n N, m N
+```
+
+This is equivalent to:
+
+```litex
+let n N
+let m N
+```
+
+### Syntactic Sugar for Shared Sets
+
+If multiple objects belong to the same set, you can group them:
+
+```litex
+let n, m N
+```
+
+This also works with other keywords like `fn`, `forall`, and `prop`.
+
+You can also mix sets in one line:
+
+```litex
+let n, m N, z Z
+```
+
+Or even declare an object inside a set you just defined:
+
+```litex
+let s set, n s
+```
+
+> Note: The order matters — `s` must be declared before `n`, otherwise Litex won’t know what `s` is.
+
+## Adding Restrictions at Declaration
+
+You can attach facts directly when declaring objects.
+
+Example: two natural numbers `n` and `m` with conditions `n > 0` and `m > n`:
+
+```litex
+let n, m N:
+    n > 0
+    m > n
+```
+
+Or declare a system of equations:
+
+```litex
+let x, y R:
+    2 * x + 3 * y = 10
+    4 * x + 5 * y = 14
+```
+
+## Declaring with `have`
+
+While `let` assumes nothing, `have` requires proof that the object’s set is **non-empty**.
+
+### Declaring Non-Empty Sets
+
+You can define a non-empty set by enumerating its elements:
+
+```litex
+have set s1 := {1, 2, 3}
+```
+
+Or by restricting an existing domain:
+
+```litex
+have set s2 := n N:
+    n > 0
+    n < 4
+```
+
+Here `s1` is explicitly finite, while `s2` is defined by conditions. They are different, even though both happen to describe `{1, 2, 3}`.
+
+### Declaring Objects from Existential Propositions
+
+If you’ve proven an existential proposition, you can declare an object satisfying it:
+
+```litex
+exist_prop x R st larger_than(y R):
+    y > 0
+    <=>:
+        x > y
+
+know forall y N_pos => $larger_than(y)
+
+let m N_pos
+
+have x st $larger_than(m)
+
+x $in R
+x > m
+```
+
+Here, `x` is guaranteed to exist because `$larger_than(m)` has been proven.
+
+### Declaring Objects in Built-In Sets
+
+```litex
+have n N, z Z, q Q, r R, c C
+```
+
+You can also declare objects in custom sets, provided you prove the set is non-empty:
+
+```litex
+let s set
+know $exist_in(s)
+
+have n s
+```
+
+`exist_in` is a built-in existential proposition. In fact:
+
+```
+have n s
+```
+
+is equivalent to:
+
+```
+have n st $exist_in(s)
+```
+
+## The Difference Between `let` and `have`
+
+Although both declare objects, they differ in a fundamental way:
+
+* **`have`**: the object’s existence is guaranteed. Litex checks that the set is non-empty.
+* **`let`**: no existence check is performed. You can declare anything — even contradictory objects — which is useful for assumptions and axioms.
+
+In short:
+
+* Use **`have`** when you want *safe, guaranteed existence*.
+* Use **`let`** when you need *freedom*, even at the cost of safety.
+
+### Declaration of finite sets
+
+
+
+<../litex-tutorial/Tutorial/Equal.md>:
+# Equal: Why `=` Rules Mathematics
+
+_Equal: regarding or affecting all objects in the same way._
+
+_— Merriam-Webster Dictionary_
+
+`=` is the most important proposition in math. It is used to build equal relation between two objects. In other words, when `x = y`, there is no difference between `x` and `y` any more. For example:
+
+```litex
+let x N, y N:
+    x = y
+    x > 0
+
+y > 0
+```
+
+Last statement `y > 0` is true, because `x = y` and `x > 0` are true. As you can see, once two objects are equal, they can be used interchangeably in any context.
+
+You can think of `a = b` as `a` is an alias of `b`, or `b` is an alias of `a`.
+
+Since `=` is so important, it has the most abundant built-in support for it. We will introduce them one by one.
+
+## Literally the same
+
+The most fundamental and basic way to verify if two objects are equal is to check if they are literally the same object. For example:
+
+```litex
+have x N
+x = x
+x + 2 = x + 2
+```
+
+Ultimately, the way to establish equality between the left and right sides of `=` is that they are exactly the same as strings (the only exception is when comparing numeric literals).
+
+## Use known transitivity of equality to prove equality
+
+The most basic property of equality is that it is transitive. For example:
+
+```litex
+let a, b, c R:
+    a = b
+    b = c
+
+a = c
+```
+
+How is `a = c` verified using transitivity of equality? When `a = b` is known to be true, the Litex kernel means a dictionary that maps both `a` and `b` to a shared set {a, b}. Then `b = c` is known, we put `c` into the set and map `a`, `b`, `c` to {a, b, c}. Now we know `a` and `c` are in the same set, so `a = c` is true. That is how transitivity of equality is used to prove equality.
+
+Here is a more complicated example:
+
+```litex
+let a, b, c, d, e R:
+    (a + 2) * d * e = a
+    a = c
+
+(a + 2) * d * e = c
+```
+
+How is `(a + 2) * d * e = c` verified using transitivity of equality? When `(a + 2) * d * e = a` is known to be true, the Litex kernel means a dictionary that maps both `(a + 2) * d * e` and `a` to a shared set {(a + 2) * d * e, a}. Then `a = c` is known, we put `c` into the set and map `a`, `c`, `(a + 2) * d * e` to {a, c, (a + 2) * d * e}. Now we know `(a + 2) * d * e` and `c` are in the same set, so `(a + 2) * d * e = c` is true. Notice besides single-word symbol like `a`, objects like `(a + 2) * d * e` are also called a symbol, a symbol composed by multiple words (in Litex, a multiple-word symbol is often in the shape of functionName(parameter1, parameter2, ...)). 
+
+## Two Return Values of Function
+
+It's very often that the included symbols are not literally the same, for example:
+
+```litex
+let a, b, c R:
+    (a * 2) + b = c
+fn f(a, b R) R
+f(a, c) = f(a, (a * 2) + b)
+```
+
+There is no known factual statement that says `f(a, c) = f(a, (a * 2) + b)` and there is nothing to transitive, why does it still work?
+
+It turns out that Litex checks the equality of two symbols inductively. Now, left-hand-side is the return value of a function (in this case, left-hand-side is return value of function `f` with parameters `a` and `c`: f(a, c)) and the right-hand-side is also the return value of a function (in this case, right-hand-side is return value of function `f` with parameters `a` and `(a * 2) + b`). Now, the Litex kernel checks whether the two functions are equal (in this case, `f` = `f`), if two functions are equal, then checks their first parameter is equal or not, (in this case, `a` = `a`), then checks their second parameter is equal or not (in this case `c` = `(a * 2) + b`, it is true because it is known to be true).
+
+The above example is very representative, since in most cases, literal equality does not work. When we are dealing with symbols, we often deal with functions, and in many cases we want to replace some parameters of that with equal parameters. This functionality is essential for such cases.
+
+Here is a more complicated example, with literally different function name, parameters, but all these literally different things are equal
+
+```litex
+let a, b, c, d R:
+    a = 2
+    b = c * a
+    c + a = (b + 10) * d
+
+fn f(a, b, c R) R
+fn g(a, b, c R) R
+know f = g
+
+f(a, b, c + a) = g(2, c * a, (b + 10) * d)
+```
+
+If you run the above code, you might receive message like this:
+
+```
+f = g
+is true. proved by
+known fact:
+f = g
+a = 2
+is true. proved by
+known fact:
+a = 2
+b = (c * a)
+is true. proved by
+known fact:
+b = (c * a)
+(c + a) = ((b + 10) * d)
+is true. proved by
+known fact:
+(c + a) = ((b + 10) * d)
+---
+Success! :)
+```
+
+The above message means that `f = g` is true, because `f = g` is known to be true, and `a = 2` is true, because `a = 2` is known to be true, and `b = (c * a)` is true, because `b = (c * a)` is known to be true, and `(c + a) = ((b + 10) * d)` is true, because `(c + a) = ((b + 10) * d)` is known to be true. Since function names are equal `f = g`, parameters are the same `a = 2`, `b = c * a`, `c + a = (b + 10) * d`. Therefore, `f(a, b, c + a) = g(2, c * a, (b + 10) * d)` is true.
+
+## Numerical Equality
+
+When the left-hand-side and right-hand-side of `=` are both numbers, Litex will use the built-in functionality to verify if they are equal. For example:
+
+```litex
+1 + 1 = 2
+4 / 2 = 2
+3 * (2 + 5) = 9 + 12
+(3 + 4) / (2 + 5) = 7 / 7
+```
+
+## Polynomial Expansion and Combination
+
+When the left-hand-side and right-hand-side of `=` are both symbols and the related functions are basic numerical functions like `+`, `-`, `*`, `/`, `^`, Litex will use the built-in functionality to verify if they are equal. 
+
+Litex has built-in polynomial simplification / expansion / factorization, which allows users to manipulate symbolic polynomials directly without manually expanding or combining like terms. This is extremely convenient for many mathematical tasks, including Algebraic reasoning, Solving equations, Cancellation / reduction, Expression simplification / constant folding, Constructing or verifying complex formulas, etc.
+
+For example:
+
+```litex
+let x, y R: y != 0
+(x + 2 * y) * y = x * y + y * y * (3 - 1)
+(10 * x + 20 * y) / 10 = x + 2 * y
+x ^ 2 = x * x
+(x ^ 2 * y + y ^ 2) / y = x ^ 2 + y
+```
+
+## Multiline Equation
+
+Litex provides `=:` to express a multiline equation:
+
+```litex
+let x, y R:
+    x = -4
+    y = 6
+=:
+    2 * x + 3 * y
+    2 * -4 + 3 * 6
+    10
+=:
+    4 * x + 5 * y
+    4 * -4 + 5 * 6
+    14
+```
+
+You can also write it in a single line:
+
+```litex
+let x, y R: x = -4, y = 6
+=(2 * x + 3 * y, 2 * -4 + 3 * 6, 10)
+=(4 * x + 5 * y, 4 * -4 + 5 * 6, 14)
+```
+
+`=:` and ` =()` are the syntax sugar for `=`. The following two pieces of code are equivalent:
+
+```litex
+let veryLongSymbol, veryLongSymbol2, veryLongSymbol3, veryLongSymbol4, veryLongSymbol5, veryLongSymbol6 R:
+    veryLongSymbol = veryLongSymbol2
+    veryLongSymbol2 = veryLongSymbol3
+    veryLongSymbol3 = veryLongSymbol4
+    veryLongSymbol4 = veryLongSymbol5
+    veryLongSymbol5 = veryLongSymbol6
+```
+
+```litex
+let veryLongSymbol, veryLongSymbol2, veryLongSymbol3, veryLongSymbol4, veryLongSymbol5, veryLongSymbol6 R:
+    =:
+        veryLongSymbol
+        veryLongSymbol2
+        veryLongSymbol3
+        veryLongSymbol4
+        veryLongSymbol5
+        veryLongSymbol6
+```
+
+As you can see, `=:` and `=()` saves you from writing a lot of `=` statements. This is especially useful when you are writing a long equation and using transitivity of equality to prove equality.
+
+<../litex-tutorial/Tutorial/Everyday_Math_In_Litex.md>:
+# Everyday Math in Litex: Whatever everyday mathematics needs to express, Litex provides. No more, no less.
+
+_Programs must be written for people to read, and only incidentally for machines to execute._
+
+_— Abelson and Sussman, SICP, preface to the first edition_
+
+My favorite computer science book is Structure and Interpretation of Computer Programs (SICP). It is a classic book that introduces the fundamental concepts of computer science. The single most important idea it taught me is: Since human logic is written in the form of code, with programming languages as its medium, a good programming language should help you express logic, rather than letting the language itself overshadow it.
+
+Math is a difficult discipline. But the basic building blocks of forming a reasoning (or of math as a whole) are not actually complicated. For example, modern math is based on the ZFC axioms, which consist of only nine axioms. From these nine, we can derive the entire edifice of math we are familiar with. It is truly remarkable that such a vast structure can be built from so few tools. And precisely because these basic units of math are easy to understand, everyone—from elementary school students to professional mathematicians—possesses some fundamental reasoning ability.
+
+The goal of Litex is to write reasoning (or math in general) as code. Since no matter how complex a piece of reasoning (or math) is, it is always built from a set of basic units, what Litex needs to do is simply provide these fundamental building blocks. Below is how everyday mathematical expressions correspond to their Litex formulations.
+
+---
+
+### **Basics**
+
+* Numbers (e.g. `0`, `-17.17`)
+* Arithmetic (e.g. `1 + 1 = 2`)
+* Basic facts (e.g. `1 > 0`， `1 $in R`, `1 + 1 = 2`)
+* Sets (keywords: `set`, `nonempty_set`, `R` for real numbers, `N` for natural numbers, etc.)
+
+---
+
+### **Objects**
+
+* Definitions of objects
+
+  * Keyword: `have`, `let`
+  * Example: `have a N = 1` defines a new object `a` in set `N` with value `1`
+
+---
+
+### **Facts**
+
+* Defining propositions
+
+  * Keywords: `prop`, `exist_prop`
+  * Example: `prop larger_than(x, y) <=> x > y`
+* Specific facts (e.g. `1 $in R`, `2 > 0`)
+* Universal facts (e.g. `forall x N => x >= 0`)
+* Existential facts (e.g. `exist 1 st $exist_in(R)`)
+
+---
+
+### **Functions**
+
+* Function definitions
+
+  * Keywords: `fn`, `have fn`
+  * Example: `have fn f(x R) R = x`
+* Function templates
+
+  * Keyword: `fn_template`
+  * Example: `fn_template sequence(s set): fn (n N) s` defines a series of objects which are all in set `s`
+
+---
+
+### **Special Proof Strategies**
+
+* `prove_by_contradiction`
+* `prove_in_each_case`
+* `prove_by_induction`
+* `prove_over_finite_set`
+
+---
+
+### **Others**
+
+* Assumptions or declaring facts without proof
+
+  * Keyword: `know`
+* Claiming a fact
+
+  * Keyword: `claim`
+* Package management
+
+  * Keyword: `import`
+* Clearing all facts
+
+  * Keyword: `clear`
+
+---
+
+Litex is a language that stays very close to the essence of mathematics and everyday mathematical reasoning. Each Litex keyword actually corresponds to a common mathematical expression; sometimes, you can even guess the purpose of a keyword without studying the Litex tutorial. This makes Litex more approachable to more people.
+
+<../litex-tutorial/Tutorial/Exist.md>:
+# Exist
+
+## What is an existential proposition
+
+In logic and mathematics, an **existential proposition** is a statement asserting that *there exists at least one object for which a certain property holds*. It is usually written as:
+
+$$
+\exists x \, P(x)
+$$
+
+where:
+
+* $\exists$ means “there exists,”
+* $x$ is a variable,
+* $P(x)$ is a property or predicate concerning $x$.
+
+**Intuitive understanding:**
+
+* For example, “There exists an integer $x$ such that $x^2 = 4$” is an existential proposition, because $x = 2$ or $x = -2$ satisfies it.
+* It is the counterpart to a **universal proposition**, which asserts that *all objects satisfy a property*, written as $\forall x \, P(x)$.
+
+**Key points:**
+
+1. The proposition is true if at least one example satisfies $P(x)$.
+2. It is false if no objects satisfy $P(x)$.
+3. In formal proofs, demonstrating an existential proposition usually involves providing a **witness**—an explicit example of $x$ that satisfies the property.
+
+If you want, I can also explain the **difference in proof strategies** between existential and universal propositions—it’s a subtle but important point in formal logic.
+
+An **existential proposition** can be expressed in terms of a universal proposition with negation. Specifically:
+
+$$
+\exists x \, P(x) \quad \text{is equivalent to} \quad \neg \forall x \, \neg P(x)
+$$
+
+**Intuition:**
+
+* “There exists an $x$ such that $P(x)$ is true” means it is **not the case** that $P(x)$ is false for all $x$.
+* In other words, if it were true that $P(x)$ is false for every $x$ ($\forall x \, \neg P(x)$), then clearly no $x$ satisfies $P(x)$.
+* So asserting existence is logically the same as denying that $P(x)$ is false for all $x$.
+
+**Example:**
+
+* Existential: “There exists an integer $x$ such that $x^2 = 4$” → $\exists x \, (x^2 = 4)$
+* Universal negation: “It is not the case that for all integers $x$, $x^2 \neq 4$” → $\neg \forall x \, (x^2 \neq 4)$
+
+Both statements are logically equivalent. Since forall plays a central role in Litex, existential propositions are also an essential component of the language.
+
+In Litex, to express not forall, you first define an existential proposition and then use the validation of this existential fact to represent the negation of a universal statement.
+
+## Claim an Exist Proposition
+
+You can claim an Exist Proposition `larger_than`(For all `y` in `R` and `y > 0`, there exists `x` in `R` such that `x > y`):
+
+```litex
+exist_prop x R st larger_than(y R):
+    dom:
+        y > 0
+    <=>:
+        x > y
+```
+`exist_prop` is the reserved word of Exist Proposition. `st` means *such that*. As you can see `exist_prop ... st ...` is a fixed match when you claim an Exist Proposition. 
+
+Also, you can hide the `dom`:
+
+```litex
+exist_prop x R st larger_than(y R):
+    y > 0
+    <=>:
+        x > y
+```
+
+If you make `y` in `N_pos`, you can hide `iff`, too:
+
+```litex
+exist_prop x R st larger_than(y N_pos):
+    x > y
+```
+
+## Prove claimed Exist Proposition
+
+When being called, exist proposition behaves exactly like how a normal proposition does. For example, here we assume `larger_than` is true for all `y` in `N_pos` and we claim there is some object that is larger than 2.
+
+```litex
+exist_prop x R st larger_than(y R):
+    x > y
+
+know forall y R => $larger_than(y)
+
+$larger_than(2)
+```
+
+However, there is one big difference between exist proposition and normal proposition. You can prove an exist proposition by providing a specific object. For example, here we prove `larger_than(2)` by providing `3`:
+
+```litex
+exist_prop x R st larger_than(y R):
+    x > y
+
+exist 3 st $larger_than(2)
+```
+
+Since `not exist` is equivalent to `forall not`, when the reverse of a existential fact is true, then the related `forall not` fact is automatically true. See the following example:
+
+```litex
+prop q(x R, y R)
+
+exist_prop x R st p(y R):
+    $q(x, y)
+
+know not $p(2)
+
+forall x R:
+    not $q(x, 2)
+```
+
+Unlike programming languages, where you can declare anything without checking its existence, Litex as well as math require you to declare the existence of an object before you can use it.
+
+## Work with Have
+
+One big difference between math and programming is that math requires you to prove the existence of an object before using it, and when programming in Python or C you do not have to do that. In Litex, `have` keyword allows you to declare a new object with existential promise.
+
+`have` keyword can work together with existential facts.
+
+```
+have object1, object2, ... st $existential_fact(param1, ...)
+```
+
+When `$existential_fact(param1, ...)` is true, the `have` statement above works. The new objects `object1, ...` are declared, with corresponding properties based on the definition of `existential_fact`
+
+For example
+
+```litex
+exist_prop x R st exist_number_larger_than(y R):
+    x > y
+
+exist 17 st $exist_number_larger_than(1)
+
+$exist_number_larger_than(1)
+
+have a st $exist_number_larger_than(1)
+
+a $in R
+a > 1
+```
+
+In this case, We use `17` to prove `$exist_number_larger_than(1)` and `have a st $exist_number_larger_than(1)` declares an object a with properties `a $in R` and `a > 1`. Notice `a = 17` is unknown, because `have` statement is choosing from one of the objects which satisfies the properties of `exist_number_larger_than`.
+
+<../litex-tutorial/Tutorial/FAQ.md>:
+# FAQ: Frequently Asked Questions
+
+_三人行，必有我师焉。(There must be someone I can learn from among the three people I walk with.)_
+
+_— 孔子 (Confucius)_
+
+1. Why the following code does not work?
+
+```
+know forall x, y R: x * y = 0 => or(x = 0, y = 0)
+let a,b R
+know a*b=0
+or(a=0,b=0)
+```
+
+Answer: The reason why it does not work, is related to how an `or` statement is executed.
+
+When the Litex kernel reads `or(a=0,b=0)`, it will check if `a = 0` is true or not under the assumption that `b = 0` is not true. However, when we use `forall x, y R: x * y = 0 => or(x = 0, y = 0)` to check whether `a = 0` is true, it the kernel could not know what `y = b` just by reading `a = 0`.
+
+To fix this, give a name to the known fact `forall x, y R: x * y = 0 => or(x = 0, y = 0)`.
+
+Example 1:
+
+```litex
+know @product_zero_implies_or(x, y R):
+    x * y = 0
+    =>:
+        or(x = 0, y = 0)
+let a,b R
+know a*b=0
+$product_zero_implies_or(a,b)
+```
+
+Example 2:
+
+```litex
+prop product_zero_implies_or(x, y R):
+    x * y = 0
+    <=>:
+        or(x = 0, y = 0)
+know forall x, y R: x * y = 0 => $product_zero_implies_or(x, y)
+
+let a,b R
+know a*b=0
+$product_zero_implies_or(a,b)
+```
+
+
+
+<../litex-tutorial/Tutorial/Fact.md>:
+# Factual Statement: Math is About Deriving New Facts from Established Ones
+
+_Deduction: inference in which the conclusion about particulars follows necessarily from general or universal premises._
+
+_— Merriam-Webster Dictionary_
+
+Math is about deriving new facts from established ones. Such process is called deduction (also called inference, reasoning) and can be verified by a very small set of mechanical rules. Thus, we can write a computer program like Litex to verify the correctness of a piece of reasoning. Easy, right?
+
+## What Is a Factual Statement?
+
+The most fundamental concept in both mathematics and **Litex** is the **Factual Statement**.
+
+A Factual Statement can take on exactly one of the following truth values:
+
+* **true**
+
+e.g. `1 > 0` is true
+
+* **unknown** (not enough information to prove or disprove)
+
+e.g. `0 > 1` is unknown. Actually it is false. In Litex, `unknown` is used in two situations: 1. this is a true statement, but the user has not provided enough information to prove it; 2. this is a false statement.
+
+* **error** (e.g., syntax error)
+
+e.g. `let birthday R: birthday = 2003.4.2` is error because `2003.4.2` is not a real number.
+
+Don’t confuse a **Factual Statement** with a *true statement*. A Factual Statement might just as well be false, unknown, or even an error.
+Don’t confuse a **Factual Statement** with a *Proposition*. A Proposition is more like a “verb” waiting for its objects; once the objects are supplied, it turns into a Factual Statement.
+
+## Deriving New Facts by *Match and Substitution*
+
+Mathematics is about deriving new facts from established ones. Verification ensures that these new facts hold true. In Litex, there are only two ways to verify a fact:
+
+1. **From special case to special case.**
+Example:
+
+```litex
+have a R
+know a = 1
+a = 1
+```
+
+The second statement is true simply because it matches the first one exactly. This is called **match**.
+
+2. **From general case to special case.**
+Example:
+
+```litex
+know forall x N: x >= 47 => x >= 17
+let x N: x = 47
+x >= 17
+```
+
+By substituting `x` with `xxg`, the `xxg >= 17` matches the known universal statement `forall x N: x >= 47 => x >= 17` after substitution. This is called **match and substitution**.
+
+Thus, Litex builds mathematics from two kinds of factual statements: **General Facts** and **Specific Facts**. Everything revolves around these two.
+
+In short, *match and substitution* is the fundamental mechanism for deriving new facts in Litex. Once basic arithmetic and counting are built in, the entire mathematical system can be constructed this way.
+
+## How Do You Call a Factual Statement?
+
+To derive new facts, we write factual statements one after another. The Litex kernel automatically verifies each one using **match and substitution**. But first, we must declare a proposition:
+
+```litex
+prop larger_than_zero(x R):
+    x > 0
+
+$larger_than_zero(1)
+```
+
+Here, `larger_than_zero` is a proposition. The symbol `>` is a built-in proposition. When we supply `1`, it becomes the factual statement `$larger_than_zero(1)`. Since `1 > 0` is true, the factual statement is true.
+
+The `$` symbol distinguishes a factual statement from a function.
+
+When a proposition takes exactly two objects, Litex even allows you to write it **infix**, making it look like ordinary math:
+
+```litex
+$in(1, N)
+1 $in N
+```
+
+## Existential Facts
+
+There is another kind of specific fact that is called **existential facts**. It is used to prove the existence of an object.
+
+```litex
+exist_prop x R st larger_than(y R):
+    y > 0
+    <=>:
+        x > y
+
+know forall y R => $larger_than(y)
+
+```
+
+The above example defines an existential proposition `larger_than`(For all `y` in `R` and `y > 0`, there exists `x` in `R` such that `x > y`). We know by default that `larger_than` is true for all `y` in `R`.
+
+Existential facts are used as opposite of universal facts. For example, to disprove `forall x R => x > 0`, we only need to find a single `x` that is smaller than 0. Litex does not support `not forall` directly. You have to declare the related existential fact and then use the validation of this existential fact to represent the negation of a universal statement.
+
+## Conclusion
+
+In this chapter, we have learned the most fundamental concept in Litex: **Factual Statement**. We have also learned how to derive new facts from established ones by **match and substitution**.
+
+<!-- TODO: FACT HIERARCHY -->
+
+<../litex-tutorial/Tutorial/First_Example.md>:
+# First Example
+
+_“If you define the problem correctly, you almost have the solution.”_
+_— Steve Jobs_
+
+Mathematics is the art of deriving new facts from established ones. To illustrate, let’s start with a classical syllogism proposed by Aristotle, which formalizes deductive reasoning.
+
+This example states: **All humans are intelligent. Jordan is a human. Therefore, Jordan is intelligent.**
+
+```litex
+have human nonempty_set, Jordan human
+prop intelligent(x human)
+know forall x human => $intelligent(x)
+$intelligent(Jordan)
+```
+
+Let’s unpack it step by step:
+
+* `human` is defined as the set of all humans, which is not empty.
+* We define a proposition `intelligent`, which applies to any element of `human`.
+* Using `know`, we establish the universal fact: all humans are intelligent.
+* Finally, when we ask whether `Jordan` is intelligent, Litex automatically applies **match and substitution**.
+
+The kernel looks at the universal fact `forall x human => $intelligent(x)`, substitutes `x` with `Jordan`, and checks whether the result holds. Since `Jordan ∈ human`, the statement `$intelligent(Jordan)` is verified as true.
+
+Factual statements are prefixed with `$` to distinguish them from functions. When the factual statement takes exactly two objects, you may write `object1 $propName object2`. You do not have to write `$` for builtin propositions like `=`, `>`, etc.
+
+### Outcomes of Statements
+
+In Litex, every statement has one of four possible outcomes: **true, false, unknown, or error**. When you run the above code, Litex will print a message showing exactly how it verified the statement. 
+
+You’ll see that `$intelligent(Jordan)` is established by applying the universal fact `forall x human => $intelligent(x)` to the specific case of `Jordan`. In this case, `forall x human => $intelligent(x)` is matched with `$intelligent(Jordan)`, and we can substitute `x` with `Jordan` in the universal fact to get `$intelligent(Jordan)`.
+
+This is the **classic example of match and substitution**—the most fundamental way people derive new facts. Keep it in mind as you move to the next section.
+
+<../litex-tutorial/Tutorial/Forall.md>:
+# Forall Statements: Force enabling reasoning to expand infinitely
+
+Mathematics is fundamentally about deducing new facts from previously established ones. Among these, **universal facts** (statements beginning with `forall`, also called `forall` statements) play a central role: they allow us to derive infinitely many specific instances.
+
+For example, the universal statement
+
+```litex
+forall x N_pos => x $in N
+```
+
+can generate infinitely many specific statements of the form `x $in N`:
+
+```
+1 $in N
+2 $in N
+...
+```
+
+Since there are infinitely many positive natural numbers, this single universal statement gives rise to infinitely many true statements.
+
+---
+
+## Universal Facts in Litex
+
+Universal statements in Litex express the idea of “for all …, if certain assumptions hold, then certain conclusions follow.”
+
+Here is a trivial but valid example:
+
+```litex
+forall x N_pos:
+    x $in N_pos
+```
+
+This reads: *for all `x` in `N_pos` (the set of positive natural numbers), `x` is in `N_pos`.*
+The assumption and the conclusion are identical, so the statement is always true.
+
+---
+
+## Syntax of `forall`
+
+The complete syntax is:
+
+```
+forall parameter1 set1, parameter2 set2, ...:
+    domFact1
+    domFact2
+    ...
+    =>:
+        thenFact1
+        thenFact2
+        ...
+```
+
+This means: *for all parameter1 in set1, parameter2 in set2, …, if domain facts (domFacts) are satisfied, then the conclusions (thenFacts) are true.*
+You can think of domain facts as the **restrictions or assumptions** required for the parameters.
+
+The symbol `$in` is a built-in proposition in Litex that means “is in.” So you can write either:
+
+```litex
+1 $in N_pos
+```
+
+or equivalently:
+
+```litex
+$in(1, N_pos)
+```
+
+Both assert the obvious fact: *for all `x` in `N_pos`, `x` is in `N_pos`.*
+
+---
+
+## Inline Universal Statements
+
+Litex also supports a compact **inline form**:
+
+```
+forall parameter1 set1, parameter2 set2, ... : inline domain facts => inline conclusion facts
+```
+
+Inline facts follow two rules:
+
+1. A **specific fact** is followed by `,`
+2. A **universal fact** is followed by `;`
+
+Examples:
+
+```litex
+forall x N_pos => x $in N_pos
+forall x N_pos: forall y N_pos: y > x => y > x; x > 10 => forall y N_pos: y > x => y > x; x > 10
+```
+
+(The second example is deliberately meaningless—it only demonstrates the syntax for nesting inline universal facts.)
+
+---
+
+## Universal Facts with Restrictions
+
+Often, we want to express universal statements with additional restrictions. For instance:
+
+*For all real numbers `x` and `y`, if `x > 0` and `y > 0`, then `x > 0` and `y > 0`.*
+
+In Litex:
+
+```litex
+know forall x, y R: x > 0, y > 0 => x > 0, y > 0
+```
+
+To make such declarations more concise, Litex lets you omit some reserved words in certain contexts. For example, `dom` can be hidden:
+
+```litex
+forall x, y R:
+    x > 0
+    y > 0
+    =>:
+        x > 0
+        y > 0
+```
+
+Inline version is
+
+```litex
+forall x, y R: x > 0, y > 0 => x > 0, y > 0
+```
+
+If `x` is already declared to be in `N_pos` (the set of positive natural numbers), there is no need to restate its domain. Similarly, `iff` can sometimes be omitted.
+
+So, the canonical form of the opening example would be:
+
+```litex
+forall x N_pos:
+    =>:
+        x $in R
+```
+
+Inline version is
+
+```litex
+forall x N_pos => x $in R
+```
+
+---
+
+## Equivalent Facts
+
+Sometimes, you want to assert that two conclusions are **equivalent** under the same restrictions. In that case, you can add an `iff` block:
+
+```litex
+forall x R:
+    dom:
+        x > 1
+    =>:
+        not x = 2
+    <=>:
+        x != 2
+```
+
+Inline version is
+
+```litex
+forall x R: x > 1 => not x = 2 <=> x != 2
+```
+
+> **Note:** This format only supports equivalences of the form `fact_1 <=> fact_2`. Both facts must be logically equivalent.
+
+## Examples
+
+Universal statements are everywhere in math, so we will see many examples in the following sections to help you understand how to use them.
+
+Sometimes, a proposition has reflection properties. For example, being friends is a symmetric relation.
+
+```litex
+have people nonempty_set
+have oddie_bird, hippo_dog people
+prop we_are_friends(x, y people)
+know:
+    forall x, y people => $we_are_friends(x, y) <=> $we_are_friends(y, x)
+    $we_are_friends(oddie_bird, hippo_dog)
+$we_are_friends(hippo_dog, oddie_bird)
+```
+
+## What will happen if your requirements in a universal fact are wrong?
+
+Suppose we have the following code
+
+```litex
+forall x, y R:
+    2 * x + 3 * y = 4
+    4 * x + 6 * y = 7
+    =>:
+        =:
+            2 * (2 * x + 3 * y)
+            2 * 4
+            4 * x + 6 * y
+            7
+        7 = 8
+```
+
+Wait, why `7 = 8` is true without any contradiction?
+
+The answer is that the requirements in the universal fact are wrong. There is no such `x` and `y` that satisfies the requirements. The reason why validation won't cause any trouble is, no such `x` and `y` exists that can match the requirements of the universal fact. So the newly verified fact will never be used to verify other facts.
+
+<../litex-tutorial/Tutorial/Function.md>:
+# Function: The Glue of Symbols
+
+Functions are among the most fundamental concepts in mathematics.
+Litex, as a **non-Turing-complete domain language** designed purely for reasoning, treats functions in a way that is quite different from programming languages like Python or C.
+
+This gap becomes clear once we compare the concept of a *function* in reasoning (mathematics) with that in programming:
+
+* In **programming languages** (e.g. Python, Lean), a function is a block of executable code that performs computation or side effects.
+* In **mathematics**, a function is not executable code. Instead, it is a **symbolic constructor** that builds a new symbol from input symbols. You can think of it as *glue* that binds symbols together.
+
+In both math and programming, the common feature is that functions use `()` to wrap inputs and produce new expressions. For example, `square_root(x)` in mathematics simply denotes a new symbol formed from `x`. No computation happens.
+
+---
+
+## Builtin Functions
+
+`+`, `-`, `*`, `/`, `^`, `%`, are builtin functions. Their daily properties are already in the Litex kernel.
+
+```litex
+1 + 1 = 2
+2 * (1 + 1) = 3 + 1
+have x, y, z R
+(x + 1) ^ 2 = x ^ 2 + 2 * x + 1
+(x + y) * (x + z) = x ^ 2 + x * y + x * z + y * z
+x + z = z + x
+```
+
+Besides builtin functions, Litex allows you to define your own functions.
+
+---
+
+## Defining a Function with an Existence Guarantee
+
+In programming, defining a function only requires writing a block of code.
+In mathematics, however, *declaring a new function must come with a proof of its existence*. Otherwise, the declaration is unsafe and could lead to contradictions.
+
+Litex provides two ways to define functions.
+
+---
+
+### 1. Define a Function and Prove its Existence
+
+When declaring a new object with existence guarantee, we use `have` keyword. When declaring a function with existence guarantee, we use `have fn` keyword.
+
+Syntax:
+
+```
+have fn:
+    function_name(x1 set1, x2 set2, ...) return_set:
+        domain_fact1
+        ...
+        then:
+            conclusion1
+            ...
+    prove:
+        statement1
+        ...
+    have object_such_that_satisfy_all_conclusions_of_this_function_and_in_return_set
+```
+
+**Example:**
+
+```litex
+have fn:
+    a(x R) R:
+        x > 0
+        =>:
+            a(x) > 0
+    prove:
+        x > 0
+    have x
+```
+
+Explanation:
+
+* In the `prove` section, the parameters of the function (here `x`) are assumed to satisfy the domain condition (`x > 0`).
+* We must then provide an object that lies in the return set and satisfies all the conclusions (`a(x) > 0`).
+* If we define `a(x) = x`, then `a(x) > 0` holds whenever `x > 0`.
+* Writing `have x` ensures the existence of such a function.
+
+Thus, the function `a` is safely defined. Its existence is guaranteed by the `have` statement.
+
+### 2. Define a Function by Equality
+
+In daily math, when we want to define a function, we just write `g(x) = x` or `s(x) = x^2` or `q(x) = x^2 + 1` etc. In Litex, we can do the same thing in a more concise way.
+
+```
+have fn f(param1 set1, param2 set2, ...) return_set = expression
+``` 
+
+For example
+
+```litex
+have fn g(x R) R = x
+have fn s(x R) R = x^2
+have fn q(x R) R = x^2 + 1
+```
+
+They are equivalent to the following:
+
+```litex
+have fn:
+    g(x R) R:
+        g(x) = x
+    prove:
+        x = x
+    have x
+
+have fn:
+    s(x R) R:
+        s(x) = x^2
+    prove:
+        x^2 = x^2
+    have x^2
+
+have fn:
+    q(x R) R:
+        q(x) = x^2 + 1
+    prove:
+        x^2 + 1 = x^2 + 1
+    have x^2 + 1
+```
+
+### Conclusion
+
+As usual, `have` keyword is used to declare a new object with ensuring its existence. Ensuring the existence of a function is not a trivial task, so we need to prove it.
+
+---
+
+### 2. Define a Function without Existence Proof
+
+Sometimes we simply want to introduce a function symbol with certain properties, without proving existence.
+For example, the square root function:
+
+```litex
+fn square_root(x R) R:
+    dom:
+        x >= 0
+    =>:
+        square_root(x) * square_root(x) = x
+```
+
+Here:
+
+* `fn` introduces a new function.
+* `square_root` is its name.
+* `(x R)` specifies the parameter `x` belongs to `R`.
+* The last `R` specifies the *range* of the function.
+* `dom` specifies domain restrictions (`x >= 0`).
+* The `=>` section states the properties the function satisfies.
+
+So, `square_root(-1)` is invalid, since `-1` does not satisfy the domain.
+
+⚠️ **Note:** This style of definition does not guarantee that such a function exists. For safety, Litex will later support `set_defined_by_replacement`, which ensures existence.
+
+Note: You can refer to the function itself in domain fact. For example, you should not do this:
+
+```
+fn f(x R) R:
+    f(x) > 0
+    =>:
+        ...
+```
+
+---
+
+## Compact Styles of Function Definition
+
+Litex encourages short, clean definitions. For example, we can omit `dom` explicitly:
+
+```litex
+fn square_root(x R) R:
+    x >= 0
+    =>:
+        square_root(x) * square_root(x) = x
+```
+
+Or even inline:
+
+```litex
+fn square_root(x R) R: x >= 0 => square_root(x) * square_root(x) = x
+```
+
+Other shorthand examples:
+
+```litex
+fn f(x R) R
+fn f2(x R) R: x > 0
+fn f3(x R) R => f3(x) > 0
+fn f4(x R) R: x > 0 => f4(x) > 0
+```
+
+Equivalent to the expanded forms:
+
+```litex
+fn f(x R) R
+fn f2(x R) R:
+    dom:
+        x > 0
+fn f3(x R) R:
+    f3(x) > 0
+fn f4(x R) R:
+    x > 0
+    =>:
+        f4(x) > 0
+```
+
+---
+
+## Calling a Function
+
+Function calls in Litex look exactly like in mathematics:
+
+```litex
+fn square_root(x R) R:
+    x >= 0
+    =>:
+        square_root(x) * square_root(x) = x
+
+square_root(4) $in R
+```
+
+⚠️ Important: Litex **does not compute**.
+`square_root(4)` does **not** equal `2`. Instead, it denotes "some value in `R` such that `square_root(x)^2 = x` when `x = 4`." The actual value is irrelevant; only the existence matters.
+
+You should not pass parameters which do not satisfy the domain of the function. For example
+
+```litex
+have cartoon_characters nonempty_set, oddie_bird, carmela_bird cartoon_characters
+fn fuse_characters(x, y cartoon_characters) cartoon_characters
+
+# You can not add two cartoon characters, because + takes real numbers as parameters.
+# oddie_bird + carmela_bird = oddie_bird + carmela_bird
+
+fuse_characters(oddie_bird, carmela_bird) $in cartoon_characters
+```
+
+You can not write `oddie_bird + carmela_bird`, because `+` takes real numbers as parameters. You can call `fuse_characters(oddie_bird, carmela_bird)` to get a new cartoon character because it is defined as a function that takes cartoon characters as parameters.
+
+## Parameters must satisfy domain fact of function
+
+```litex
+fn f(x R) R:
+    x > 0
+    =>:
+        f(x) > 0
+
+f(-1) > 0
+```
+
+You can not write `f(-1)`, because `-1` does not satisfy the domain fact `x > 0`. If you run the above code, it will output an error like this:
+
+```
+failed to check param(s) (-1 * 1) satisfy domain of
+fn (x R) R:
+    dom
+        x > 0
+    =>
+        f(x) > 0
+```
+
+---
+
+## Function Templates and `let`
+
+Functions are also objects. Thus, with `let`, we can declare functions from templates.
+
+```litex
+# function template
+fn_template finite_sequence(s set, max N):
+    fn (n N) R:
+        dom:
+            n < max
+
+let n N
+
+# declare a function from the template
+let fs1 finite_sequence(R, 10):
+    fs1(n) = n * n
+```
+
+This is shorthand for:
+
+```litex
+fn_template finite_sequence(s set, max N):
+    fn (n N) R:
+        dom:
+            n < max
+
+let fs1 finite_sequence(R, 10):
+
+know forall n N => fs1(n) = n * n
+```
+
+---
+
+✨ In short:
+
+* In **programming**, a function executes.
+* In **Litex**, a function is a **symbolic constructor**, a piece of glue that builds new symbols from old ones.
+* To define functions safely, one must ensure existence, either by proof or by replacement.
+
+
+<../litex-tutorial/Tutorial/Function_Template.md>:
+# Function Template: The Blueprint of Functions
+
+A definition of a function has the following parts: 1. function name 2. parameters and the sets they belong to 3. domain facts of these parameters 4. the properties that the function satisfy. 5. the return value of this function belongs to what set.
+
+For example
+
+```litex
+fn f(x R, y N) R:
+    x > y
+    =>:
+        f(x, y) = x - y
+```
+
+1. The name of this function is `f`
+2. The parameters `x, y` must be in `R` and `N`,
+3. domain fact `x > y` must be true for parameters `x, y`.
+4. The fact that `f(x, y) = x - y` is by definition true.
+5. The return value of this function is in `R`, 
+
+Apparently, there are countless functions with domain `x $in R, y $in R, x > y`, with property `f(x ,y) = x - y`, `f(x ,y) $in R`. `fn_template` allows to declare a set of functions with certain properties.
+
+For example
+
+```litex
+fn_template sequence_of_real_numbers():
+    fn (n N) R
+```
+
+Here we have defined a set of functions. All of these functions take a natural parameter and return a real number. In mathematics, sequences are very common. For example, sometimes we define a linear sequence a[n] = n, a constant sequence a[n] = c, or the Fibonacci sequence a[n+2] = a[n+1] + a[n]. In fact, these sequences are simply functions whose input is a natural number and whose output is a real number. We say `a $in sequence_of_real_numbers()` to say sequence `a` take a natural parameter and return a real number.
+
+How about defining a sequence of integers, a sequence of rational numbers, a sequence of real numbers, a sequence of happy baby characters?
+
+```litex
+fn_template integer_sequence():
+	fn (n N) Z
+fn_template rational_sequence():
+	fn (n N) Q
+fn_template real_sequence():
+	fn (n N) R
+
+have happy_baby_characters nonempty_set
+
+fn_template happy_baby_characters_sequence():
+	fn (n N) happy_baby_characters 
+
+let a integer_sequence(), b rational_sequence(), c real_sequence(), d happy_baby_characters_sequence()
+```
+
+They all looks similar, don't they? Litex allows you to define them in a very short form.
+
+```litex
+fn_template sequence(s set):
+	fn (n N) s
+
+let a sequence(Z), b sequence(Q), c sequence(R), d sequence(happy_baby_characters_sequence)
+```
+
+In this case template parameter `s` of `sequence` definition, replaces the `Z` of `integer_sequence` definition, `Q` of `rational_sequence` definition, `R` of `real_sequence()` definition. So `sequence(Z)` is equivalent to `integer_sequence()`.
+
+Generally, a function template definition in Litex looks like this:
+
+```
+fn_template T(template_parameter1 template_parameter1_set, ...):
+    dom: # domain of template parameters
+        template_dom_fact_1
+        ...
+    fn (parameter1 set1, parameter2 set2...) fn_return_value_set:
+        # domain of this function
+        dom_fact_1
+        dom_fact_2
+        ...
+        =>:
+            then_fact_1
+            then_fact_2
+            ...
+```
+
+What does `f $in T(template_parameters)` mean? It means:
+
+0. template_parameters must satisfy domain of template parameters.
+
+1. The domain of f is superset of the domain of the `fn` under declaration of T: the domain of `f` has parameters `parameter1 set1, parameter2 set2...` with domain dom_fact_1, dom_fact_2, ...
+
+2. When restricted on the domain of the `fn` under declaration of T, the function f satisfies all the then facts in `fn`: `f` satisfies `then_fact_1`, `then_fact_2`, ... and the return value is in set `fn_return_value_set`
+
+Function template can be very helpful, especially when we are defining multiple functions with similar structure. For example, we want to define the set of all finite positive sequences (a sequence is a function from natural numbers to some set) with at least 10 items. Obviously, there are infinitely many functions that satisfy those requirements. We can do this by defining a function template.
+
+For example, we define the set of all finite positive sequences with at least 10 items. 
+
+```litex
+fn_template finite_positive_sequence_with_at_least_10_items(length N_pos):
+    dom:
+        length >= 10
+    fn (n N_pos) R:
+        n <= length
+        =>:
+            finite_positive_sequence_with_at_least_10_items(n) > 0
+
+# length = 12, 12 >= 10 so everything is fine.
+let f finite_positive_sequence_with_at_least_10_items(12)
+
+f(9) > 0
+
+# f(-1) > 0 #Error: -1 $in N_pos is not true
+
+# f(17) > 0 #Error: 17 <= 12 is not true
+```
+
+Notice `12 >= 10` must be true so that `finite_positive_sequence_with_at_least_10_items(12)` is valid. `f(9) > 0` is true because `f $in $finite_positive_sequence_with_at_least_10_items(12)` and all functions in finite_positive_sequence_with_at_least_10_items(12) can take parameter `n` with properties `n $in N_pos, n <= 12` and return a function with property `
+
+The `f` here is equivalent to `f` defined here.
+
+```litex
+fn f(n N_pos) R:
+    n <= 12
+    =>:
+p        f(n) > 0
+```
+
+<!-- TODO: Return Set Inference --> 
+
+## Return Set Inference
+
+A function can return a function. For example, the addition of two functions return a new function. Litex checks the return set of the function to be a set, and checks whether you can indeed pass parameters to the returned function.
+
+```litex
+fn_template T0():
+    fn (x R, y R) R
+
+fn_template T1():
+    fn (x R) T0()
+
+let a T1()
+
+a(1)(2,3) $in R
+```
+
+`a` is a function that satisfies the function template `T1()`, i.e. You can define `a` like `fn a(x R) T0()`. a(1) is a function which satisfies the function template `T0()`, because `a` takes `x = 1` as parameter and returns a function which satisfies the function template `T0()`, so a(1) is a function in form `fn (x R, y R) R`. Since `a(1)` takes 2 real parameters and return a real number, `a(1)(2,3) $in R` is true.
+
+Notice how useful the above functionality is. You can define a function that takes a function as parameter and returns a function. This is very common in mathematics.  
+
+```litex
+have has_very_special_meanings nonempty_set
+
+fn_template T3():
+    fn (x R) has_very_special_meanings
+
+fn_template T2():
+    fn (x R, y R, z R, m R) T3()
+
+fn_template T1():
+    fn (x R) T2()
+
+fn_template T0():
+    fn (x R) T1()
+
+fn w(x R) T0()
+
+have b, z, d, g, s, m R
+
+w(b)(z)(d)(g, s, m, m)(17) $in has_very_special_meanings
+```
+
+As you can see, you can make the chain of function calls arbitrarily long and complicated.
+
+```litex
+have has_very_special_meanings nonempty_set
+prop very_special(x has_very_special_meanings)
+
+fn_template T3(n R):
+    dom:
+        n < 10
+    fn (x R) has_very_special_meanings
+
+fn_template T2(n R):
+    dom:
+        n $in N_pos
+    fn (x R, y R, z R, m R) T3(n)
+
+fn_template T1(n R):
+    dom:
+        n $in N
+    fn (x R) T2(n)
+
+fn_template T0(n R):
+    dom:
+        n >= 1
+    fn (x R) T1(n)
+
+fn w(x R) T0(1)
+
+have b, z, d, g, s, m R
+
+w(b)(z)(d)(g, s, m, m)(17) $in has_very_special_meanings
+```
+
+`w` is in template `T0(1)`, so `w(b)` is in template `T1(1)`, so `w(b)(z)` is in template `T2(1)`, so `w(b)(z)(d)` is in template `T3(1)`, so `w(b)(z)(d)(g, s, m, m)` is in template `T4(1)`. 1 satisfies `n >= 1` so that `T0(1)` is valid. 1 satisfies `n $in N`, so that `T1(1)` is valid. 1 satisfies `n $in N_pos`, so that `T2(1)` is valid. 1 satisfies `n < 10`, so that `T3(1)` is valid. 
+
+<../litex-tutorial/Tutorial/In.md>:
+# In
+
+`in` is a built-in proposition in Litex. It is used when you want to claim an object is in a set. Since `in` facts are everywhere, Litex allows you to omit it in most cases. For example:
+
+```litex
+let n N
+n $in N
+```
+
+`let n N` here has two effects:
+
+1. Declare an object in current environment (context). For example, object `n` now exists in current environment. You can use it later.
+
+2. Assume `n` is in set `N`. It has the same effect as `know n $in N`.
+
+```litex
+forall x N:
+    x $in N
+```
+
+`x N` in `forall x N` is the same as `x $in N`.
+
+```litex
+fn f(x N) N
+```
+
+`x N` in `fn f(x N) N` means the parameter `x` that is passed to `f` is must satisfy `x $in N`, i.e. The domain of the first parameter `x` is subset of `N`.
+
+```litex
+prop p(x N)
+```
+
+`x N` in `prop p(x N)` means the parameter `x` that is passed to `p` is must satisfy `x $in N`, i.e. The domain of the first parameter `x` is subset of `N`.
+
+As you can see, `in` is everywhere, in explicit and implicit ways.
+
+<../litex-tutorial/Tutorial/Inline_Statements.md>:
+# Inline Statements
+
+In the previous sections, we are exploring how to map mathematical expressions to Litex statements. You can see Litex is a very intuitive language because it maps mathematical concepts directly to Litex statements.
+
+People are always more receptive to things they’re familiar with. That’s why Litex adopts Python-style syntax, using line breaks to structure code. This not only keeps the code organized but also lowers the learning curve for users.
+
+However, in daily writing, people are also very familiar with writing statements in a single paragraph. Using Python-style syntax can sometimes make code occupy excessively many lines. So Litex provides a way to write statements in a single line.
+
+When you find yourself writing a sequence of statements in a single line one after another, when you are writing a specific fact, follow it with `,`; when you are writing a `forall` statement, follow it with `;`. When it is the last statement, the `,` or `;` is optional.
+
+## Forall
+
+Inline forall statement ends with `;` to separate itself from the next statement. When the whole line ends with that forall statement, the `;` is optional (If you are careful, write `;` every time to avoid confusion). When `forall` is inside another statement, the `;` is required. As you can see, inline version saves a lot of lines.
+
+The `then` keyword is replaced by `=>` and `iff` is replaced by `<=>`. Domain Facts follow the `:` symbol. When you are writing inline `forall`, all facts that appear in the `forall` fact must also be written in inline format. When there is no extra domain facts, you can hide the `:` symbol and write `=>` directly.
+
+```litex
+forall => 1 + 1 = 2
+forall => 1 + 1 = 2;
+forall:
+    1 + 1 = 2
+```
+
+```litex
+forall : 1 > 0 => 1 > 0
+forall:
+    1 > 0
+    =>:
+        1 > 0
+```
+
+```litex
+forall => 1 + 1 = 2 <=> 1 + 1 = 2
+forall:
+    =>:
+        1 + 1 = 2
+    <=>:
+        1 + 1 = 2
+```
+
+```litex
+forall x R => x $in R
+forall x R:
+    x $in R
+
+forall x R => x > 0 <=> x > 0
+forall x R:
+    =>:
+        x > 0
+    <=>:
+        x > 0
+```
+
+```litex
+forall x R: x > 0 => x > 0 <=> x > 0
+forall x R:
+    dom:
+        x > 0
+    =>:
+        x > 0
+    <=>:
+        x > 0
+```
+
+```litex
+forall x R: forall y R: y > 0 => y > 0 <=> y > 0; x > 0 => x > 0
+forall x R:
+    forall y R:
+        dom:
+            y > 0
+        =>:
+            y > 0
+        <=>:
+            y > 0
+    x > 0
+    =>:
+        x > 0
+
+forall x R: forall y R: y > 0 => y > 0 <=> y > 0; x > 0 => forall y R: y > 0 => y > 0 <=> y > 0; x > 0
+forall x R:
+    forall y R:
+        dom:
+            y > 0
+        =>:
+            y > 0
+        <=>:
+            y > 0
+    x > 0
+    =>:
+        forall y R:
+            dom:
+                y> 0
+            =>:
+                y > 0
+            <=>:
+                y > 0
+        x > 0
+```
+
+```litex
+forall x R: forall y R: y > 0 => y > 0; 1 > 0, forall y R: y > 0 => y > 0; => 1 > 0, forall y R: y > 0 => y > 0; 1 > 0
+forall x R:
+    forall y R:
+        y > 0
+        =>:
+            y > 0
+    1 > 0
+    forall y R:
+        y > 0
+        =>:
+            y > 0
+    =>:
+        1 > 0
+        forall y R:
+            y > 0
+            =>:
+                y > 0
+        1 > 0
+```
+
+## Or, Equal
+
+`or` and `=` can also be written in inline format.
+
+```litex
+or(1 = 1, 1 = 2)
+or:
+	1 = 1
+    1 = 2
+```
+
+```litex
+=(1, 2 - 1, 1 * 1)
+=:
+	1
+    2 - 1
+    1 * 1
+```
+
+## Function Declaration
+
+`fn` can also be written in inline format. The `then` keyword is replaced by `=>`.
+
+```litex
+fn f(x R) R: x > 0 => f(x) > 0
+fn f_multi_lines(x R) R:
+    x > 0
+    =>:
+        f_multi_lines(x) > 0
+```
+
+```litex
+fn g(x R) R => g(x) > 0
+fn g_multi_lines(x R) R:
+    g_multi_lines(x) > 0
+```
+
+```litex
+fn k(x N) N: forall y N_pos: x < y => k(x) = 0
+fn k_multi_lines(x N) N:
+    dom:
+        forall y N_pos:
+            x < y
+            =>:
+                k_multi_lines(x) = 0
+```
+
+```litex
+fn t(x N) N: forall y N_pos: x < y => t(x) = 0; 1 > 0, forall y N_pos: x < y => t(x) = 0; => t(1) = 0
+fn t_multi_lines(x N) N:
+    forall y N_pos:
+        x < y
+        =>:
+            t_multi_lines(x) = 0
+    1 > 0
+    forall y N_pos:
+        x < y
+        =>:
+            t_multi_lines(x) = 0
+    =>:
+        t_multi_lines(1) = 0
+```
+
+## Proposition Declaration
+
+The followings are inline version of proposition declaration. The equivalent multiple lines version is below. `iff` in inline version is replaced by `<=>`.
+
+```litex
+prop q(x R) <=> x > 0
+prop q_multi_lines(x R):
+    x > 0
+
+prop p(x , y R): x > 0, y > 0 <=> x + y > 0
+prop p_multi_lines(x , y R):
+    x > 0
+    y > 0
+    <=>:
+        x + y > 0
+```
+
+
+
+## Inline Multiple Factual Statements
+
+You can write multiple factual statements in one line. When you find yourself writing a sequence of statements in a single line one after another, when you are writing a specific fact, follow it with `,`; when you are writing a `forall` statement, follow it with `;`. When it is the last statement, the `,` or `;` is optional.
+
+For example, the following line is equivalent to the following multiple lines:
+
+```litex
+forall x R:
+	x $in R
+1 > 0
+forall x R:
+	x $in R
+1 > 0
+
+forall x R => x $in R; 1 > 0, forall x R => x $in R; 1 > 0
+```
+
+## Other Statements
+
+Most Litex statements can be written in inline format. Here are some examples:
+
+```litex
+let x, y R: x > y
+let x_multi_lines, y_multi_lines R:
+    x_multi_lines > y_multi_lines
+
+claim:
+    1 > 0
+    prove:
+        1 > 0
+
+claim:
+    1 > 0
+    prove:
+        1 > 0
+
+claim 1 > 0 prove:
+    1 > 0
+```
+
+```litex
+claim:
+    forall x R:
+        x > 0
+        =>:
+        	x > 0
+    prove:
+        x > 0
+
+claim forall y R: y > 0 => y > 0; prove:
+    y > 0
+
+# you can omit `prove` here
+claim 1 > 0:
+    1 > 0
+
+claim:
+    1 > 0
+    prove_by_contradiction:
+        1 > 0
+
+claim 1 > 0 prove_by_contradiction:
+    1 > 0
+
+exist_prop x R st exist_R_larger_than_any_positive_number_multi_lines(y R):
+    y > 0
+    <=>:
+        x > y
+
+exist_prop x R st exist_R_larger_than_any_positive_number(y R): y > 0 <=> x > y
+
+prop p(x R)
+
+know $p(1), $p(2), $p(3)
+```
+
+### Inline Factual Statements
+
+You can write factual statements in a single line.
+
+The following two examples are equivalent. The inline version is more concise and saves you a lot of lines.
+
+```litex
+let a, b, c, d, e, f R:
+    a = 1
+    b = 2
+    c = 3
+    d = 4
+    e = 5
+    f = 6
+a = 1
+b = 2
+c = 3
+d = 4
+e = 5
+f = 6
+```
+
+```litex
+let a, b, c, d, e, f R: a = 1, b = 2, c = 3, d = 4, e = 5, f = 6
+a = 1, b = 2, c = 3, d = 4, e = 5, f = 6
+```
+
+Specific facts, existential facts, and universal facts can all be written in inline format. Universal facts should end with `;` and specific facts should end with `,`.
+
+```litex
+1 + 1 = 2, forall x R: x > 0 => x > 0; exist 2 st $exist_in(R), 0 * 18 = 0
+```
+
+### Conclusion
+
+Simplicity is the number one design principle of Litex. Inline statements are a great example of this principle. Simplicity makes Litex a pleasure to use.
+
+<../litex-tutorial/Tutorial/Introduction.md>:
+# Introduction: Begin the journey with Litex
+
+## What is Litex
+
+Litex(/lɪ'tɛks/) is an intuitive and scalable formal language for coding your reasoning. Litex takes its name from the combination of two languages that deeply influenced its design: Lisp and TeX. Since 2024, Litex has been developed in parallel with its design by its creator Jiachen Shen, and through continuous evolution it has now grown into a community-driven project open to everyone.
+
+Since a 10-year-old can reason about basic math, even a 10-year-old should be able to learn and use Litex easily to solve their own problems. We assume a man without any math or programming background can learn Litex in 1-3 hours. Don’t worry. It’s perfectly fine if you don’t remember everything the first time. When you encounter a specific problem, coming back to review the relevant section of this tutorial is just as effective.
+
+Like all successful programming languages, Litex is designed to be enjoyable to use and pragmatic in solving real problems. Its focus is scaling formal reasoning in the AI era. Both the AI and math communities need a simple, accessible formal language to integrate into their workflows. Litex meets this need, cutting the effort of formalization from 10× to parity with natural writing. As a result, building in Litex is about 10× cheaper and easier than with traditional formal systems (Lean, Coq, Isabelle, etc.) -— a true benefit for both AI and mathematics.
+
+The three key features of Litex are: **intuitive, simple, and expressive**.
+
+## Intuitive
+
+Litex support all common expression in math like numbers, variables, functions, etc. 
+
+Here is an example: to determine the correctness of solution of multivariate linear equation: 2x + 3y = 10, 4x + 5y = 14:
+
+```litex
+let x R, y R:
+    2 * x + 3 * y = 10
+    4 * x + 5 * y = 14
+2 * (2 * x + 3 * y) = 2 * 10
+4* x + 6 * y = 2 * 10
+(4*x + 6 * y) - (4*x + 5 * y) = 2 * 10 - 14
+(4*x + 6 * y) - (4*x + 5 * y) = y
+y  = 6
+2 * x + 3 * 6 = 10
+2 * x + 18 - 18 = 10 - 18
+2 * x + 18 - 18 = -8
+(2 * x) / 2 = -8 / 2
+(2 * x) / 2 = x
+x = -4
+```
+
+Anyone can understand the above code. There is almost zero difference between how we write math and how we write Litex. However, traditional formal languages like Lean requires you to learn a lot of complicated syntax and concepts.
+
+## Simple
+
+The difficulty of writing mathematics in a formal language is usually about equal to the difficulty of the mathematics itself plus the difficulty of expressing that mathematics in the formal language. Litex’s goal is to reduce the latter to as close to zero as possible, allowing users to focus on the mathematics itself rather than on the language they are using.
+
+Here is an example: to prove sqrt(2) is irrational:
+
+```litex
+# prove sqrt(2) is irrational
+# 证明 sqrt(2) 是无理数
+
+fn logBase(x, y N) N:
+    dom:
+        x != 0
+
+know forall x, y, z N => logBase(z, x^y) = y * logBase(z, x), logBase(z, x*y) = logBase(z, x) + logBase(z, y)
+
+know forall x N: x != 0 => logBase(x, x) = 1
+
+claim:
+    not sqrt(2) $in Q
+    prove_by_contradiction:
+        sqrt(2) > 0
+        have x, y st $rational_positive_number_representation_in_fraction(sqrt(2))
+        
+        x = sqrt(2) * y
+        x ^ 2 = (sqrt(2) ^ 2) * (y ^ 2)
+        sqrt(2) ^ 2 = 2
+        x ^ 2 = 2 * (y ^ 2)
+
+        logBase(2, x ^ 2) = logBase(2, 2 * (y ^ 2))     
+        logBase(2, x ^ 2) = 2 * logBase(2, x)
+        logBase(2, y ^ 2) = 2 * logBase(2, y)
+
+        logBase(2, 2 * (y ^ 2)) = logBase(2, 2) + logBase(2, y ^ 2)
+        logBase(2, 2) = 1
+        logBase(2, 2 * (y ^ 2)) = 1 + logBase(2, y ^ 2)
+
+        logBase(2, x ^ 2) = 1 + 2 * logBase(2, y)
+        2 * logBase(2, x) = 1 + 2 * logBase(2, y)
+
+        =:
+            0
+            (2 * logBase(2, x)) % 2            
+            (1 + 2 * logBase(2, y)) % 2
+            
+        =:
+            (1 % 2 + (2 * logBase(2, y)) % 2) % 2
+            (1 + 2 * logBase(2, y)) % 2
+            (1 % 2 + (2 * logBase(2, y)) % 2) % 2
+            (1 + 0) % 2
+            1
+        0 = 1
+```
+
+Litex code is pretty straightforward. Try to read the above code yourself. It is not hard. Below is the same example in Lean.
+
+## Expressive
+
+Mathematics studies abstraction. It is about finding the most general and abstract patterns in the world. Litex is very good at expressing such patterns. Here is an example: to define a group, and prove R and Z are groups.
+
+```litex
+prop is_group(s set, mul fn(s, s)s, inv fn(s)s, e s):
+    forall x s, y s, z s:
+        mul(mul(x, y), z) = mul(x, mul(y, z))
+    forall x s:
+        mul(x, inv(x)) = e
+        mul(inv(x), x) = e
+
+fn inverse(x R)R:
+    inverse(x) + x = 0
+
+forall x R:
+    inverse(x) + x = 0
+    x + inverse(x) = 0
+
+forall x Z:
+    x + inverse(x) = 0
+    inverse(x) = -x
+    -x $in Z
+    inverse(x) $in Z
+
+$is_group(R, +, inverse, 0)
+$is_group(Z, +, inverse, 0)
+```
+
+## Words from the creator
+
+Hi, I am Jiachen Shen, a hacker and creator of Litex. It is a computer language for formalizing reasoning. Computation is how math is used to solve real-world problems. Reason is how we enriches our understanding of the world. Such knowledge is totally different from ordinary knowledge because it can be mechanically verified by a given set of rules. Math, physics, computer science all rely on such strictness. The software industry has already revolutionized how we compute, and Litex is here to change how we reason.
+
+A good art is what makes its developers happy and makes its users find it useful. I hope Litex can be a good art for both me as the creator and its users. Feel free to join us! Start from visiting our [website](https://litexlang.com)! Thank you for your support!
+
+## How to read this tutorial
+
+The biggest strength of Litex is its intuitiveness. In the ideal case, we hope users can read and use Litex without having to learn it at all! 
+
+Please don’t feel any pressure when reading this tutorial — Litex is truly very simple. Code in this tutorial can be run in your browser! Run it to have the first taste of Litex!
+
+The purpose of this slim tutorial is:
+
+1. To record the most basic Litex syntax and keywords, ensuring there is no ambiguity for users.
+2. To provide some examples for beginners to reference.
+
+Don't forget to run the examples yourself! You can learn much much faster if you read and write the examples yourself!
+
+The best way to learn Litex is to try writing the examples from the tutorial yourself, or translate the mathematics (or reasoning) you care about into Litex.
+
+
+<../litex-tutorial/Tutorial/Know.md>:
+# Know: Use It Wisely
+
+## Use `know` to Assume Facts
+
+Often we need to assume certain facts instead of proving them. For example, when introducing a new object with specific properties, or when using a theorem as a premise without going through its full proof. In such cases, we use the `know` keyword.
+
+There are two ways to use `know`: **multi-line** and **inline**.
+
+### Multi-line
+
+Write `know:` and list the facts below. Each fact can itself be inline or multi-line.
+
+```litex
+know:
+    fact_1
+    fact_2
+    ...
+```
+
+Example (facts are trivial here, just for demonstration):
+
+```litex
+know:
+    1 > 0
+    forall x R:
+        x $in R
+    forall x R => x $in R
+    2 > 1
+```
+
+### Inline
+
+Write `know` followed by a sequence of inline facts. Specific facts end with `,` and universal facts with `;`. The final ending mark may be omitted.
+
+```litex
+know specific_fact_1, universal_fact_1; specific_fact_2, universal_fact_2; ...
+```
+
+Example:
+
+```litex
+know 1 > 0, forall x R => x $in R; forall x R => x $in R; 2 > 1
+```
+
+---
+
+## When to use `know`
+
+### 1. Bind facts to propositions
+
+You can declare a proposition and attach equivalent facts to it:
+
+```litex
+prop n_larger_than_10(n N_pos) # declare a proposition
+know forall n N_pos => n > 10 <=> $n_larger_than_10(n)
+```
+
+Equivalent to:
+
+```litex
+prop n_larger_than_10(n N_pos):
+    n > 10
+```
+
+While mathematically the same, explicitly stating equivalences makes definitions clearer. Litex’s kernel will also infer related equivalences automatically when given, which makes proofs more direct.
+
+---
+
+### 2. Define axioms
+
+Axioms are assumed true without proof. Use `know` to introduce them:
+
+```litex
+know forall x N => x >= 0
+```
+
+---
+
+### 3. Assume theorems without proof
+
+Sometimes you want to use results without formalizing them. For example:
+
+```litex
+prop fermat_last_theorem(x, y, z, n N_pos): n >= 3 <=> x^n + y^n = z^n
+know forall x, y, z, n N_pos: n >= 3 => $fermat_last_theorem(x, y, z, n)
+```
+
+Fermat’s Last Theorem, proved by Andrew Wiles in 1994, is extremely hard to formalize. Yet Litex lets you use it directly with `know`, so you can build on established results without being blocked by their complexity.
+
+---
+
+### 4. Bind properties to objects or functions
+
+If too few facts are known about an object, you can’t derive much from it. That’s why we often bind related facts when defining objects or functions.
+
+```litex
+let n N_pos
+know n > 10
+```
+
+Equivalent to:
+
+```litex
+let n N_pos: n > 10
+```
+
+Another example:
+
+```litex
+fn fibonacci(n N_pos) N_pos
+know fibonacci(1) = 1, fibonacci(2) = 1, forall n N_pos => fibonacci(n+2) = fibonacci(n+1) + fibonacci(n)
+```
+
+Or for functions:
+
+```litex
+fn g(x R) R
+fn s(x R) R
+fn q(x R) R
+know forall x R => g(x) + s(x) + q(x) = g(x) + 17
+```
+
+---
+
+## Be careful with `know`
+
+`know` can make **any** statement true.
+
+```litex
+know 1 = 2
+1 = 2   # true, because you know 1 = 2
+1 != 2  # also true, because 1 != 2 is a built-in fact
+```
+
+As this example shows, careless use of `know` can break consistency. Use it wisely.
+
+---
+
+## Conclusion
+
+`know` is a powerful tool. You can use it to:
+
+1. Bind facts to propositions
+2. Define axioms
+3. Assume theorems without proof
+4. Bind properties to objects and functions
+
+There are no strict rules—use `know` when it makes your code clearer and easier to read, but always with caution.
+
+
+
+<../litex-tutorial/Tutorial/Match_And_Substitution.md>:
+# Match and Substitution: The Fundamental Mechanism of Litex
+
+_万物之始，大道至简，衍化至繁. (All begins in simplicity; the Way is simple, yet gives rise to the complex.)_
+
+_-- 老子 (Lao Tzu)_
+
+How does Litex verify a statement?
+It all comes down to **match and substitution**—as simple as pressing `Ctrl + F` in your browser.
+
+There are only two ways to perform match and substitution:
+
+1. **From special case to special case**
+2. **From general case to special case**
+
+## From Special Case to Special Case
+
+If we know a fact is true, then whenever we recall it later, it remains true.
+
+```litex
+have a R # It means a is in set R (R: The set of all real numbers)
+know a = 1
+a = 1
+```
+
+Here, since we already know `a = 1`, reclaiming it simply reproduces the same fact.
+
+## From General Case to Special Case
+
+The other way is to move from a general rule to a specific instance.
+
+```litex
+# Define three propositions
+prop g(x Q)
+prop s(x Q)
+prop q(x Q)
+
+know $g(1)
+know forall x Q => $s(x)
+know $q(1)
+know forall x N: x > 7 => $g(x)
+know forall x Q: x > 17 => $g(x)
+$g(17.17)
+```
+
+We want to verify whether `$g(17.17)` is true.
+To do this, Litex scans all known facts with the proposition name `g`. Other facts (like `$q(1)` or `forall x Q => $s(x)`) are ignored because they use different proposition names.
+
+Relevant facts for `g` are:
+
+1. `$g(1)`
+2. `forall x N: x > 7 => $g(x)`
+3. `forall x Q: x > 17 => $g(x)`
+
+Now we check:
+
+* **Fact 1:** `$g(1)` applies only to `x = 1`. Since `1 ≠ 17.17`, it doesn’t help.
+* **Fact 2:** For all natural numbers greater than 7, `g(x)` holds. But `17.17 ∉ N`, so this fact does not apply. (Q means the set of all rational numbers, N means the set of all natural numbers)
+* **Fact 3:** For all rationals greater than 17, `g(x)` holds. Since `17.17 ∈ Q` and `17.17 > 17`, this fact applies.
+
+Therefore, `$g(17.17)` is verified. Once obtained, `$g(17.17)` itself becomes a new fact that can be used in future reasoning.
+
+## Summary
+
+In short, **match and substitution** is the fundamental mechanism by which Litex derives new facts. With basic arithmetic and axioms built in, the entire mathematical system can be constructed step by step through this simple yet powerful method. It is just a miracle how we can build a whole mathematical system by this simple method!!
+
+<../litex-tutorial/Tutorial/Math_Is_Not_A_Programming_Language_So_Is_Not_Litex.md>:
+## Math is not a programming language, so is not Litex
+
+Before we officially introduce you to Litex, I hope you can keep in mind that reasoning (or generally, math) is not a programming language, so is not Litex. There are huge gaps between reasoning and programming.
+
+| Feature              | Mathematics                                                                 | Programming                                                                    |
+|----------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| **Variable**          | No real "variable" — once an object is defined, its meaning is fixed        | Variables can change values during execution                                   |
+| **Existential Quantification** |  You have to prove the existence of an object before using it. | You can use and declare a variable directly. |
+| **Function**          | A symbol that builds new expressions from input symbols (no execution)      | A block of executable code that performs computation or side effects           |
+| **Execution**         | No execution — everything is symbolic manipulation or `match and substitution`           | Involves actual computation steps and runtime behavior                         |
+| **Control Flow**      | Uses logical constructs like `∀` (for all) to reason about all cases (no execution flow)        | Uses constructs like `for`, `while`, `if` to control the flow of execution     |
+| **Iteration**         | Infinite or large domains handled abstractly (e.g. by induction or logic)    | Requires explicit loops and step-by-step computation                           |
+| **Purpose**           | To prove or verify truth symbolically                                        | To perform tasks, process data, interact with systems                          |
+
+Litex, as a domain language, takes advantage of the difference between programming and verification, and is designed to be a simple and intuitive reasoning verifier. Technically, Litex is a "Read-Only Turing Machine". It does not have variables, execution, control flow, iteration, etc. Everything in Litex is built around the concept of `match and substitution`, which is exactly how we human reason. 
+
+**Litex’s syntax is simplified to such an extreme that it is nearly impossible for any language to be closer to mathematics.** Traditional formal languages (Lean, Coq, etc.), are programming languages, no different from Python. They may be easier than Python for expressing mathematics, but they are still too complex. Being a programming language sort of robbed you of the joy of exploring mathematics by forcing you to spend most of your time wrestling with the formal language itself. Litex brings that joy back!
+
+
+<../litex-tutorial/Tutorial/Named_Universal_Fact.md>:
+## Named Universal Fact
+
+It is often we want to use a universal fact to check a specific fact. And we find that there are more parameters in the universal fact than the specific fact. For example:
+
+```litex
+know forall a, b, c R: a < b, b < c => a < c
+let a, b, c R: a < b, b < c
+# a < c # This does not work!
+```
+
+We can not prove `a < c` since we do not know which `b` is used by `forall a, b, c R: a < b, b < c => a < c` to prove `a < c`.
+
+It turns out we can give a name to the forall statement by defining a new proposition.
+
+```litex
+prop transitivity_of_less(a, b, c R):
+    a < b
+    b < c
+    <=>:
+        a < c
+know forall a, b, c R: a < b, b < c => $transitivity_of_less(a, b, c)
+
+let a, b, c R: a < b, b < c
+$transitivity_of_less(a, b, c)
+a < c
+```
+
+However, this is not the best way to do it. Litex provides you a short way to do it.
+
+```litex
+know @transitivity_of_less(a, b, c R):
+    a < b
+    b < c
+    =>:
+        a < c
+```
+
+The above example means:
+
+```litex
+prop transitivity_of_less(a, b, c R):
+    a < b
+    b < c
+
+know forall a, b, c R: $transitivity_of_less(a, b, c) => a < c
+know forall a, b, c R: a < b, b < c => a < c
+```
+
+Named universal fact can be used in the following situations:
+
+1. follow keyword `know`: 
+
+```
+know @name(parameter1 set1, parameter2 set2, ...):
+	fact1
+	fact2
+	...
+    =>:
+        then_fact1
+        then_fact2
+        ...
+```
+
+It means
+
+```
+prop name(parameter1 set1, parameter2 set2, ...):
+	fact1
+	fact2
+	...
+
+know forall parameter1 set1, parameter2 set2, ...:
+    $name(parameter1, parameter2, ...)
+    =>:
+        then_fact1
+        then_fact2
+        ...
+```
+
+2. follow keyword `claim`:
+
+```
+claim:
+    @propName(parameter1 set1, parameter2 set2, ...):
+        fact1
+        fact2
+        ...
+        =>:
+            then_fact1
+            then_fact2
+            ...
+    prove:
+        ...
+```
+
+```
+prop propName(parameter1 set1, parameter2 set2, ...):
+	fact1
+	fact2
+	...
+
+claim:
+    forall parameter1 set1, parameter2 set2, ...:
+        $propName(parameter1, parameter2, ...)
+        =>:
+            then_fact1
+            then_fact2
+            ...
+    prove:
+    	...
+```
+
+3. use directly
+
+```
+@propName(parameter1 set1, parameter2 set2, ...):
+	fact1
+	fact2
+	...
+    =>:
+        then_fact1
+        then_fact2
+        ...
+```
+
+```
+prop propName(parameter1 set1, parameter2 set2, ...):
+	fact1
+	fact2
+	...
+
+forall parameter1 set1, parameter2 set2, ...:
+    $propName(parameter1, parameter2, ...)
+    =>:
+        then_fact1
+        then_fact2
+        ...
+```
+
+Sometimes, a proposition has transitive properties. For example, being colleagues is a transitive relation.
+
+```litex
+have people nonempty_set
+have oddie_bird, hippo_dog, thin_penguin people
+prop are_colleagues(x, y people)
+know @are_colleagues_transitive(x, y, z people):
+    $are_colleagues(x, y)
+    $are_colleagues(y, z)
+    =>:
+    	$are_colleagues(x, z)
+know:
+    $are_colleagues(oddie_bird, hippo_dog)
+    $are_colleagues(hippo_dog, thin_penguin)
+$are_colleagues_transitive(oddie_bird, hippo_dog, thin_penguin)
+$are_colleagues(oddie_bird, thin_penguin)
+```
+
+## Proposition vs Named Universal Fact
+
+As you can see, `know` a named universal fact has the effect of defining a proposition and knowing it is always true for all parameters. So when you want to define a proposition and what to assume it is always true for all parameters, you can use `know` a named universal fact. When you just want to define a proposition, you can use `prop` keyword. Fundamentally, the behavior of `know @` can be reproduced by `prop` and `know` together, but Litex introduces this `@` syntax to help you write code more efficiently.
+
+<../litex-tutorial/Tutorial/Not.md>:
+# Not: Truth only matters when something can be false.
+
+Any specific fact can be negated by `not`. 
+
+The following example shows how to negate a specific fact:
+
+```litex
+let x R: x > 5
+
+not x <= 5
+```
+
+To prove the negation of a specific fact, you can use `prove_by_contradiction` in `claim` block. For example:
+
+```litex
+prop p(x R)
+prop q(x R)
+know forall x R: $p(x) => $q(x); not $q(1)
+claim:
+    not $p(1)
+    prove_by_contradiction:
+        $q(1) # is true, because $p(1) is assumed to be true
+```
+
+You can not write `not forall` in Litex. When you want to negate a universal fact, You must declare a `exist_prop` first and try to prove the existence of such an item that leads to `not forall`.
+
+You can also negate an existence-proposition fact:
+
+```litex
+exist_prop x N_pos st exist_positive_natural_number_smaller_than_given_real_number(y R):
+    x < y
+
+know not $exist_positive_natural_number_smaller_than_given_real_number(0)
+```
+
+<../litex-tutorial/Tutorial/Or.md>:
+# Or: Stop Thinking in Black and White
+
+Or represents an inclusive disjunction, meaning at least one of the conditions is true. You can use it like:
+
+```litex
+let x R: x = 1
+
+or:
+    x = 1
+    x = 2
+
+or(x = 1, x = 2)
+```
+
+The syntax is:
+
+```
+or:
+    specific_fact1
+    specific_fact2
+    ...
+    specific_factN
+
+or(specific_fact1, specific_fact2, ..., specific_factN)
+```
+
+You can write specific facts under `or` facts.
+
+`or` facts can be written in `forall` facts:
+
+```litex
+let s set, a s: forall x s => or(x = 1, x = 2); not a = 1
+
+a = 2
+```
+
+`or` can also appear as dom of a `forall` fact
+
+```litex
+know forall x R: or(x = 1, x = 2) => x < 3
+```
+
+## Or & Prove In Each Case
+
+`or` is often used with `prove_in_each_case` to prove a fact in each case.
+
+```litex
+let a R: or(a = 0, a = 1)
+
+prove_in_each_case:
+    or(a = 0, a = 1)
+    =>:
+        a >= 0
+    prove:
+        a = 0
+    prove:
+        a = 1
+```
+
+Without `prove_in_each_case`, Litex would never be able to express many mathematical facts. Read "prove_in_each_case" section for more details.
+
+## How is Or Facts Executed?
+
+When the Litex kernel reads `or(fact1, fact2, ..., factN)`, it will check if `fact1` is true or not under the assumption that `fact2`, ..., `factN` are not true.
+
+That explains why the following code does not work:
+
+```
+know forall x, y R: x * y = 0 => or(x = 0, y = 0)
+let a,b R
+know a*b=0
+or(a=0,b=0)
+```
+
+Answer: The reason why it does not work, is related to how an `or` statement is executed.
+
+When the Litex kernel reads `or(a=0,b=0)`, it will check if `a = 0` is true or not under the assumption that `b = 0` is not true. However, when we use `forall x, y R: x * y = 0 => or(x = 0, y = 0)` to check whether `a = 0` is true, it the kernel could not know what `y = b` just by reading `a = 0`.
+
+To fix this, give a name to the known fact `forall x, y R: x * y = 0 => or(x = 0, y = 0)`.
+
+Example 1:
+
+```litex
+know @product_zero_implies_or(x, y R):
+    x * y = 0
+    =>:
+        or(x = 0, y = 0)
+let a,b R
+know a*b=0
+$product_zero_implies_or(a,b)
+```
+
+
+## Specific fact, Or Fact, and Forall Fact
+
+There are basically three kinds of facts: specific fact (ordinary specific fact, existential fact), `or` fact, and `forall` fact.
+
+You can not write `or` fact and `forall` fact under `or`. Only specific facts are allowed. You can write `or` fact and `forall` fact in `forall` fact.
+
+<../litex-tutorial/Tutorial/Package.md>:
+# Package
+
+Like other programming language, there is a package system in Litex.
+
+## Import from `.lix` File
+
+If your Litex project maintains following file structure:
+
+```bash
+Litex_project
+├── main.lix
+├── folder
+│   └── file_1.lix
+└── file_2.lix
+```
+
+You can just import other `.lix` file via `import` in file `main.lix`:
+
+```
+import "file_2.lix"
+import "folder/file_1.lix"
+```
+
+In this case, Litex would copy content from other `.lix` file and paste them into your `main.lix` file when Litex start to 
+
+## Build your Litex Package
+
+You can build your own Package by add a `main.lix` file into each folder:
+
+```bash
+Litex_Package
+├── main.lix
+├── folder_1
+│   ├── main.lix
+│   ├── folder_2
+│   │   ├── main.lix
+│   │   └── file_1.lix
+│   ├── file_2.lix
+│   └── file_3.lix
+└── file_4.lix
+```
+
+Litex will search every `main.lix` file when you import your package.
+
+## Import from Litex Package
+
+If your Litex project maintains following file structure:
+
+```bash
+Litex_project
+├── main.lix
+├── Litex_Package
+│   ├── main.lix
+│   ├── folder_1
+│   │   ├── main.lix
+│   │   ├── file_1.lix
+│   │   ├── file_2.lix
+│   ├── folder_2
+│   │   └── main.lix
+│   │   └── file_3.lix
+│   └── file_4.lix
+└── file_5.lix
+```
+
+You can import Litex Package via `import` and `::`:
+
+```
+import "Litex_Package"
+import "Litex_Package::folder_2"
+```
+
+To use anything form Package, you should use `::` to help Litex to locate which path it should be:
+
+```
+Litex_Package::obj_1
+Litex_Package::folder_1::prop_1
+
+folder_2::prop_2
+```
+
+> Note: `import` only support Obejects or Propositions or anything that in `main.lix`, you should import other `.lix` file into `main.lix` of each level so that you could use them directly.
+
+## Rename Package when Importing
+
+Different author names Package with different rules. You may want to rename Packages when importing them. You need `as`:
+
+```
+import "Litex_Package" as p
+import "Litex_Package::folder_2" as f
+
+p::obj_1
+p::folder_1::prop_1
+
+f::prop_2
+```
+
+<../litex-tutorial/Tutorial/Proof.md>:
+# Proof
+
+`prove` provides a sub-environment that does not affect the part out of its sub-environment. In this case, `x` in different Prove block works individually:
+
+```litex
+prove:
+    let x N_pos:
+        x = 1
+    or:
+        x = 1
+        x = 2
+
+prove:
+    let x R:
+        not x < 0
+    x >= 0
+
+let x N:
+    x = 0
+x = 0
+```
+
+Imagine you are writing a long proof, and you want to write scratches independent of the main proof just for helping yourself to think. You can use `prove` to write them.
+
+> Note: In this case, if you make claim of `let x N` before all Prove block, Litex would report an Error. Because you claimed `x` in parent-environment first and sub-environment would be affected.
+
+
+
+<../litex-tutorial/Tutorial/Proposition.md>:
+# Proposition: The Verbs of Logic
+
+A proposition is something that can be true or false — it’s a general statement form, often involving variables or placeholders. A factual statement is a proposition with all variables replaced by concrete values (or otherwise fully specified) so that its truth value is determined in a given context.
+
+For example
+
+```litex
+have human nonempty_set, Jordan human
+prop intelligent(x human)
+know forall x human => $intelligent(x)
+$intelligent(Jordan)
+```
+
+`intelligent` is a proposition. `$intelligent(Jordan)` is a factual statement. (`$` is for the difference between a specific fact and a function)
+
+Another example is: In `1 > 0`, `1 > 0` is a factual statement, `>` is a proposition. A factual statement can be true or false, but not both. Factual statement `1 > 0` is true. Factual statement `0 > 1` is false.
+
+Think in this way: In everyday expressions, there are subjects and predicates; whereas in reasoning language, a *proposition* functions like a verb, its parameters are the subjects. The outcome of this action can only be **true, unknown, error, or false**.
+
+The complete definition of a proposition is:
+
+```
+prop propName(parameter1 set1, parameter2 set2, ...):
+    domFact1
+    domFact2
+    ...
+    <=>:
+        iffFact1
+        iffFact2
+        ...
+```
+
+Or you can write `dom` in the first line:
+
+```
+prop propName(parameter1 set1, parameter2 set2, ...):
+    dom:
+        domFact1
+        domFact2
+        ...
+    <=>:
+        iffFact1
+        iffFact2
+        ...
+```
+
+It reads: propName takes parameter1 in set1, parameter2 in set2, ..., and parameters must satisfy domFact1, domFact2, ..., . When the requirements of parameters are satisfied, $propName(parameter1, parameter2, ...) is true if and only if iffFact1, iffFact2, ... are all true.
+
+When there is no domain facts, you can hide `<=>`:
+
+```
+prop propName(parameter1 set1, parameter2 set2, ...):
+    iffFact1
+    iffFact2
+    ...
+```
+
+Sometimes we just want to declare a proposition without specifying what facts it is equivalent to. You can write
+
+```
+prop propName(parameter1 set1, parameter2 set2, ...)
+```
+
+For example, we declare a proposition `p`, and after lines of code we set equivalent facts for it. Notice it does not mean that anything can leads to this proposition.
+
+```litex
+prop sum_larger_than_0(x, y R)
+
+# ... lines of code
+
+know forall x, y R => $sum_larger_than_0(x, y) <=> x + y > 0
+```
+
+Also, you can specify the domain of a proposition at declaration time without specifying its equivalent definition. Later, you can add the equivalent definition. 
+
+```litex
+prop can_form_a_triangle(x, y, z R):
+    dom:
+        x > 0
+        y > 0
+        z > 0
+
+# ... lines of code
+
+know forall x, y, z R: x > 0, y > 0, z > 0 => $can_form_a_triangle(x, y, z) <=> x + y > z, x + z > y, y + z > x
+```
+
+In Litex, `dom` corresponds to the "domain" in mathematical writing. It specifies the range of the parameters that are allowed to be passed to the proposition.
+
+In everyday mathematical writing, we usually put definitions on a single line. Litex allows you to do so, which saves you a lot of lines. Here are examples:
+
+```litex
+prop p(x, y R)
+prop p3(x, y R) <=> x > y
+prop p4(x, y R): x > y <=> x + y > 10
+```
+The equivalent multiline-version writes like this:
+
+```litex
+prop p(x, y R)
+prop p3(x, y R):
+    x > y
+prop p4(x, y R):
+    x > y
+    <=>:
+        x + y > 10
+```
+
+When we know or proved a fact is true, Litex automatically know all the equivalent facts are true. For example:
+
+When `$transitivity_of_less(a, b, c)` is true, Litex automatically infers all facts that are logically equivalent to it.
+
+In this example, `$transitivity_of_less_operator(x, y, z)` states that `x < z` is equivalent to `x < y` and `y < z` being true. By substituting `x = a`, `y = b`, and `z = c`, we obtain `a < c`. Since Litex knows these two statements are equivalent, `a < c` is automatically established.
+
+This automatic derivation of equivalent facts is an essential feature of Litex. Without it, even if we had a statement like
+
+```
+forall a, b, c R: a < b, b < c => a < c
+```
+
+we would not be able to directly prove `a < c` in some situations—because we might not know which specific `b` is being used to satisfy the universal statement.
+
+By assigning a name to a `forall` statement and verifying it through that proposition name, Litex can then automatically conclude all equivalent facts, ensuring that results like `a < c` are immediately known.
+
+Another example is about the triangle inequality:
+
+```litex
+prop can_form_a_triangle(x, y, z R):
+    dom:
+        x > 0
+        y > 0
+        z > 0
+    <=>:
+        x + y > z
+        x + z > y
+        y + z > x
+```
+
+## Claim an empty Proposition
+
+Also, you can claim a Proposition without any logic but only a name like the following line, which means `x`, `y`, `z` in `N_pos` is able to form triangles in any situation. Obviously, this proposition is false with the knowledge we have. But you can still claim it anyway.
+
+```litex
+prop can_form_a_triangle(x, y, z N_pos)
+```
+
+Absolutely, you can claim a Proposition with only additional restrictions and no logic like the following lines, which express the similar meaning like the above line:
+
+```litex
+prop can_form_a_triangle(x, y, z R):
+    dom:
+        x > 0
+        y > 0
+        z > 0
+```
+
+> Note: If there is only dom in your Proposition, you can't hide `dom` anymore. Or Litex would misunderstand your lines with the situation that Proposition with `iff` only.
+
+## Call a Proposition
+
+After claiming a Proposition, you could call it anywhere with a prepend `$`:
+
+```litex
+prop can_form_a_triangle(x, y, z R):
+    x > 0
+    y > 0
+    z > 0
+    <=>:
+        x + y > z
+        x + z > y
+        y + z > x
+
+$can_form_a_triangle(3, 4, 5)
+```
+
+If there is only two Objects in parentheses of Proposition claim, you could also call it like:
+
+```litex
+prop divisible_by(n, m R):
+    m != 0
+    <=>:
+        n % m = 0
+
+6 $divisible_by 3
+```
+
+## An example
+
+We have already known how to declare new objects and propositions, here is a through example that takes you to walk through what we have already known. The following example shows how transitivity, commutativity, reflexivity, which are the most basic properties of a relation, is formalized in Litex.
+
+```litex
+let happy_baby_characters set
+let little_little_monster, big_big_monster, boss, happy_superman happy_baby_characters
+
+# Transitivity
+prop is_leader_of(x, y happy_baby_characters)
+know big_big_monster $is_leader_of little_little_monster, boss $is_leader_of big_big_monster
+prop is_leader_is_transitive(x, y, z happy_baby_characters):
+    x $is_leader_of y
+    y $is_leader_of z
+    <=>:
+        x $is_leader_of z
+know forall x, y, z happy_baby_characters: x $is_leader_of y, y $is_leader_of z => $is_leader_is_transitive(x, y, z)
+$is_leader_is_transitive(boss, big_big_monster, little_little_monster)
+boss $is_leader_of little_little_monster
+
+# Commutativity
+prop is_enemy_of(x, y happy_baby_characters)
+know forall x, y happy_baby_characters => x $is_enemy_of y <=> y $is_enemy_of x; happy_superman $is_enemy_of big_big_monster
+big_big_monster $is_enemy_of happy_superman
+
+# Reflexivity
+prop is_friend_of(x, y happy_baby_characters)
+know forall x happy_baby_characters => x $is_friend_of x
+little_little_monster $is_friend_of little_little_monster
+```
+
+As you can see, this example is not that "math". Reasoning happen everywhere and every time in our life!
+
+<../litex-tutorial/Tutorial/Prove_By_Contradiction.md>:
+# Prove by Contradiction: A coin cannot be heads and tails at the same time.
+
+In math, one common way to prove a statement is to prove its negation is false. This method is called `Prove by Contradiction`.
+
+```
+claim:
+    fact_you_want_to_prove
+    prove_by_contradiction:
+        statement1
+        ...
+        final_statement
+```
+
+`prove_by_contradiction` should always be used in `claim` block. In the environment of `prove_by_contradiction`, `not fact_you_want_to_prove` is assumed to be true. To make the process of proving by contradiction works, the `final_statement` should be a fact that is both true and false. After that, the assumption `not fact_you_want_to_prove` is false and `fact_you_want_to_prove` is true.
+
+For example:
+
+```litex
+prop g(x R)
+prop s(x R)
+prop q(x R)
+
+know:
+    forall x R: $g(x) => $s(x)
+    forall x R: $s(x) => $q(x)
+    not $q(17)
+
+claim:
+    not $g(17)
+    prove_by_contradiction:
+        $s(17)
+        $q(17)
+```
+
+In this case, since `g(x)` leads to `s(x)` leads to `q(x)`, when `not q(x)` is true, `g(x)` can not be true.
+
+## Example
+
+Here is a classic example, prove sqrt(2) is irrational using Proof by Contradiction:
+
+```litex
+# prove sqrt(2) is irrational
+# 证明 sqrt(2) 是无理数
+
+fn logBase(x, y N) N:
+    dom:
+        x != 0
+
+know forall x, y, z N => logBase(z, x^y) = y * logBase(z, x), logBase(z, x*y) = logBase(z, x) + logBase(z, y)
+
+know forall x N: x != 0 => logBase(x, x) = 1
+
+claim:
+    not sqrt(2) $in Q
+    prove_by_contradiction:
+        sqrt(2) > 0
+        have x, y st $rational_positive_number_representation_in_fraction(sqrt(2))
+        
+        x = sqrt(2) * y
+        x ^ 2 = (sqrt(2) ^ 2) * (y ^ 2)
+        sqrt(2) ^ 2 = 2
+        x ^ 2 = 2 * (y ^ 2)
+
+        logBase(2, x ^ 2) = logBase(2, 2 * (y ^ 2))     
+        logBase(2, x ^ 2) = 2 * logBase(2, x)
+        logBase(2, y ^ 2) = 2 * logBase(2, y)
+
+        logBase(2, 2 * (y ^ 2)) = logBase(2, 2) + logBase(2, y ^ 2)
+        logBase(2, 2) = 1
+        logBase(2, 2 * (y ^ 2)) = 1 + logBase(2, y ^ 2)
+
+        logBase(2, x ^ 2) = 1 + 2 * logBase(2, y)
+        2 * logBase(2, x) = 1 + 2 * logBase(2, y)
+
+        =:
+            0
+            (2 * logBase(2, x)) % 2            
+            (1 + 2 * logBase(2, y)) % 2
+            
+        =:
+            (1 % 2 + (2 * logBase(2, y)) % 2) % 2
+            (1 + 2 * logBase(2, y)) % 2
+            (1 % 2 + (2 * logBase(2, y)) % 2) % 2
+            (1 + 0) % 2
+            1
+        0 = 1
+```
+
+
+
+
+<../litex-tutorial/Tutorial/Prove_By_Induction.md>:
+# Prove by Induction: The Power of Recursion
+
+## The Core Idea
+
+Mathematical induction is like a line of dominoes:
+
+* First, you show that the very first domino falls (**base case**).
+* Then, you show that whenever one domino falls, it will push the next one down (**induction step**).
+* Therefore, all the dominoes will eventually fall, meaning the statement is true for every case.
+
+## Two Key Steps
+
+1. **Base Case**
+   Prove the statement for the first number (often $n = 0$ or $n = 1$).
+
+2. **Induction Step**
+   Assume the statement is true for some number $n = k$ (this is the **induction hypothesis**).
+   Then prove it must also be true for $n = k+1$.
+
+## Why It Works
+
+Once both steps are done, you’ve shown the statement works for the first case, and that the truth passes from each number to the next. 
+
+It is so simple that people often overlook it; yet it is actually a mathematical axiom, without which the whole tower of mathematics would collapse.
+
+Litex uses keyword `prove_by_induction` to support proving by induction.
+
+```
+prove_by_induction(specific_fact, the_object_you_want_to_iterate_over, induction_begin_from_positive_index)
+```
+
+For example, there is a proposition `p(x, n)` that is true for `n = 2` and when `p` is true for `n`, it is also true for `n+1` if `n >= 2`. We want to prove that `p(x, n)` is true for all `n >= 2`.
+
+```litex
+prop p(x R, n N_pos)
+
+let x R
+
+know:
+    forall n N_pos: n >= 2, $p(x, n) => $p(x, n+1)
+    $p(x, 2)
+
+prove_by_induction($p(x, n), n, 2)
+
+forall n N_pos: n >= 2 => $p(x,n)
+```
+
+<../litex-tutorial/Tutorial/Prove_In_Each_Case.md>:
+# Prove by Cases: Divide and Conquer in Proofs
+
+**Proof by cases** is a reasoning method where we split the problem into a finite number of mutually exclusive scenarios (cases). If the statement to be proved holds in *every* case, then it holds in general.
+
+This method relies on the logical principle of **disjunction elimination**:
+
+* If we know that one of several possibilities (\$p \lor q \lor \dots\$) must be true,
+* and we can show that the desired conclusion follows from each possibility individually,
+* then the conclusion is universally valid.
+
+In practice, this means:
+
+1. Identify the possible cases that cover all situations.
+2. Prove the claim separately under the assumption of each case.
+3. Combine the results to conclude that the claim holds overall.
+
+This approach is especially useful when direct reasoning is difficult, but the problem naturally breaks into distinct scenarios — for example, proving a property of an integer by considering the cases “even” and “odd.”
+
+The syntax is:
+
+```
+prove_in_each_case:
+    or(fact1, fact2, ..., factN)
+    =>:
+        then_fact
+    prove:
+        # assume fact1 is true, prove then_fact
+    prove:
+        # assume fact2 is true, prove then_fact
+    ...
+    prove:
+        # assume factN is true, prove then_fact
+```
+
+If `or(fact1, fact2, ..., factN)` is true, and each `prove` section, where the nth fact in `or` statement, proves `then_fact`, then ¸`then_fact` is always true.
+
+For example
+
+```litex
+let weekdays set
+prop is_monday(x weekdays)
+prop is_tuesday(x weekdays)
+prop is_wednesday(x weekdays)
+prop is_thursday(x weekdays)
+prop is_friday(x weekdays)
+prop is_saturday(x weekdays)
+prop is_sunday(x weekdays)
+know forall x weekdays => or($is_monday(x), $is_tuesday(x), $is_wednesday(x), $is_thursday(x), $is_friday(x), $is_saturday(x), $is_sunday(x))
+
+prop stay_at_home_doctor_wear_his_uniform(x weekdays)
+know:
+    forall x weekdays: $is_monday(x) => $stay_at_home_doctor_wear_his_uniform(x)
+    forall x weekdays: $is_tuesday(x) => $stay_at_home_doctor_wear_his_uniform(x)
+    forall x weekdays: $is_wednesday(x) => $stay_at_home_doctor_wear_his_uniform(x)
+    forall x weekdays: $is_thursday(x) => $stay_at_home_doctor_wear_his_uniform(x)
+    forall x weekdays: $is_friday(x) => $stay_at_home_doctor_wear_his_uniform(x)
+    forall x weekdays: $is_saturday(x) => $stay_at_home_doctor_wear_his_uniform(x)
+    forall x weekdays: $is_sunday(x) => $stay_at_home_doctor_wear_his_uniform(x)
+
+prop stay_at_home_doctor_always_wear_his_uniform():
+    forall x weekdays => $stay_at_home_doctor_wear_his_uniform(x)
+
+claim:
+    forall x weekdays => $stay_at_home_doctor_wear_his_uniform(x)
+    prove:
+        prove_in_each_case:
+            or($is_monday(x), $is_tuesday(x), $is_wednesday(x), $is_thursday(x), $is_friday(x), $is_saturday(x), $is_sunday(x))
+            =>:
+                $stay_at_home_doctor_wear_his_uniform(x)
+            prove:
+                $is_monday(x)
+            prove:
+                $is_tuesday(x)
+            prove:
+                $is_wednesday(x)
+            prove:
+                $is_thursday(x)
+            prove:
+                $is_friday(x)
+            prove:
+                $is_saturday(x)
+            prove:
+                $is_sunday(x)
+
+$stay_at_home_doctor_always_wear_his_uniform()
+```
+
+In example, we know any item in `weekdays` is either satisfies `is_monday`, `is_tuesday`, `is_wednesday`, `is_thursday`, `is_friday`, `is_saturday`, or `is_sunday`. And we know the stay at home doctor wears his uniform on each of these days. Therefore, we can conclude that the stay at home doctor wears his uniform on any day.
+
+Here is another example:
+
+```litex
+know forall x R: x > 0 => x^2 > 0
+
+claim:
+    forall a R => a^2 >= 0
+    prove:
+        prove_in_each_case:
+            or:
+                a > 0
+                a = 0
+                a < 0
+            =>:
+                a^2 >= 0
+            prove:
+                a * a = a ^ 2
+                a ^ 2 > 0
+                a ^ 2 >= 0
+            prove:
+                =(0, 0^2, a ^ 2, a * a)
+                0 >= 0
+                a^2 >= 0
+            prove:
+                a ^ 2 = (-a) ^ 2
+                -a > 0
+                (-a) ^ 2 > 0
+                (-a) ^ 2 >= 0
+```
+
+In this example, we use the known fact `forall x R: x > 0 => x^2 > 0` to prove `forall a R => a^2 >= 0`. We split the case into `a > 0`, `a = 0`, and `a < 0`. And we prove `a^2 >= 0` in each case.
+
+<../litex-tutorial/Tutorial/Prove_Over_Finite_Set.md>:
+# Prove Over Finite Set: Things are easy when they are finite
+
+If a set is finite, then to prove that forall x in this set some property holds, we can simply check each element one by one. In this way, unlike the general case of infinite sets, the conclusion can be obtained by directly traversing all the elements in the set.
+
+Litex uses keyword `prove_over_finite_set` to support proving over finite set.
+
+```
+prove_over_finite_set:
+	universal_fact
+```
+
+The sets in universal fact header must be finite.
+
+For example, we want to prove that forall x in the set {1, 2, 3}, x is less than 4. Litex iterates over `x = 1`, `x = 2`, `x = 3` to see whether the `then` facts (e.g. In this case, the `x > 0` in `forall x s => x > 0`) is true or not.
+
+```litex
+let s set:
+    s := {1, 2, 3}
+
+prove_over_finite_set:
+    forall x s:
+        x > 0
+```
+
+Empty set, which is the very special case of finite set, is also supported. As you can see, any factual statement is true on items in empty set, since there is no item in empty set.
+
+```litex
+have set s := {}
+
+# any factual statement is true on empty set
+prove_over_finite_set:
+    forall x s:
+        x > 0
+        x < 0
+```
+
+You can pass multiple sets to `prove_over_finite_set` to prove a universal fact over multiple sets. These sets must all be finite.
+
+```litex
+let s3, s4 set:
+    s3 := {1, 2, 3}
+    s4 := {1, 2, 3}
+
+prove_over_finite_set:
+    forall x s3, y s4:
+        x * y >= 1
+```
+
+Sometimes, the `then` facts are not immediately true. In this case, you can use `prove` section to prove them.
+
+```
+prove_over_finite_set:
+    universal_fact
+    prove:
+        ...
+    prove:
+        ...
+```
+
+The number of `prove` sections here are the same as the number of sets in the universal fact header. The `prove` sections are executed in the order of the sets in the universal fact header.
+
+For example
+
+```litex
+let s1 set, s2 set:
+    s1 := {1, 2}
+    s2 := {3, 4}
+
+prove_over_finite_set:
+    forall x s1, y s2:
+        x * y >= 1
+    prove:
+        1 * 3 >= 1
+    prove:
+        1 * 4 >= 1
+    prove:
+        2 * 3 >= 1
+    prove:
+        2 * 4 >= 1
+```
+
+<../litex-tutorial/Tutorial/Sequence.md>:
+# Sequence
+
+Since sequences and finite-length sequences are everywhere in math, Litex provides built-in keyword `seq`, `finite_seq` to represent sequences. They are declared in this way:
+
+```
+fn_template seq(s set):
+	fn (n N) s
+
+fn_template finite_seq(s set, n N_pos):
+    fn (x N) s:
+    	dom:
+        	x < n
+```
+
+Let's take a look at a simple example:
+
+```litex
+let a seq(R), b seq(R), c seq(R), d seq(R):
+    forall n N => a(n) = n
+    forall n N => b(n) = n * n
+    forall n N => c(n) = n * n * n
+    forall n N => d(n) = n * n * n * n
+
+a(1) = 1
+=(b(3), 3 * 3, 9)
+=(c(3), 3 * 3 * 3, 27)
+=(d(3), 3 * 3 * 3 * 3, 81)
+```
+
+Here we have defined four sequences `a`, `b`, `c`, `d` which are all in the set `R`. We have also defined the domain of each sequence.
+
+## Sequence and Prove By Induction
+
+When studying sequences, mathematical induction is often the most natural proof technique. Since sequences are defined step by step along the natural numbers, many of their properties are expressed in terms of the relationship between consecutive terms. This makes induction especially suitable for proving results such as general formulas and summation identities. Below, we use the formula for the sum of an arithmetic progression as an example, showing how sequences and induction work hand in hand in Litex.
+
+The next example wants to prove the formula for the sum of an arithmetic progression:
+
+$$
+S_n = \frac{n}{2} (2a_1 + (n-1)d)
+$$
+
+where $a_1$ is the first term and $d$ is the common difference.
+
+```litex
+prop is_arithmetic_progression(a seq(R), d R):
+    forall k N_pos => a(k+1) = a(1) + k * d
+    forall k N_pos => a(k+1) = a(k) + d
+
+fn sum_of_first_n_numbers(a seq(R), n N_pos) R
+know:
+    forall a seq(R), n N_pos:
+        sum_of_first_n_numbers(a, n+1) = sum_of_first_n_numbers(a, n) + a(n+1)
+    forall a seq(R):
+        sum_of_first_n_numbers(a, 1) = a(1)
+
+claim:
+    forall a seq(R), n N_pos, d R:
+        $is_arithmetic_progression(a, d)
+        =>:
+            sum_of_first_n_numbers(a, n) = n * (2 * a(1) + (n-1) * d) / 2
+    prove:
+    	=:
+            sum_of_first_n_numbers(a, 1)
+            a(1)
+            1 * (2 * a(1) + (1-1) * d) / 2
+        
+        claim:
+            forall k N_pos:
+                sum_of_first_n_numbers(a, k) = k * (2 * a(1) + (k-1) * d) / 2
+                =>:
+                    sum_of_first_n_numbers(a, k+1) = (k+1) * (2 * a(1) + (k+1 - 1) * d) / 2
+            prove:
+                a(k+1) = a(k) + d
+                =:
+                    sum_of_first_n_numbers(a, k+1)
+                    sum_of_first_n_numbers(a, k) + a(k+1)
+                    k * (2 * a(1) + (k-1) * d) / 2 + (a(1) + k * d)
+                    (k+1) * (2 * a(1) + (k+1 - 1) * d) / 2
+
+        prove_by_induction(sum_of_first_n_numbers(a, k) = k * (2 * a(1) + (k-1) * d) / 2, k, 1)
+        n >= 1
+        sum_of_first_n_numbers(a, n) = n * (2 * a(1) + (n-1) * d) / 2
+```
+
+<../litex-tutorial/Tutorial/Set.md>:
+# Set: Where Modern Mathematics is Built Upon
+
+Modern math is built upon set theory. In Litex, to ensure correctness and be more aligned with modern math, when the user wants to declare a new object, he must say which set it belongs to.
+
+```litex
+have a N, b Q, c R
+let e N, f Q, g R
+```
+
+The keyword `set` is useless, unless there is a proposition that works together with it. In our case, as how math works, it is the keyword `in`.
+
+```litex
+have a N
+a $in N
+```
+
+Actually, `have a N` has two effects: 1. declare an object `a` in current environment (context). 2. assume `a` is in set `N`, similar to `know a $in N`.
+
+As `in` serves many use cases in math, it also serves many use cases in Litex.
+
+1. serves as companion to `set`.
+
+```litex
+have a N
+a $in N
+```
+
+2. A function satisfy a function template also uses the keyword `in`.
+
+```litex
+fn_template self_defined_seq(s set):
+    fn (n N) s
+
+fn f(n N) R
+
+f $in self_defined_seq(R)
+```
+
+3. As parameter condition for everything: function, proposition, etc.
+
+It is easy to introduce wrong facts if we do not have `set` requirement of things that might receive parameters. For example, it is strange to pass a set object to `+` (e.g. It is strange to say `empty_set + empty_set` ). It's also strange to say `2 $in 1` because 1 is not a set. To solve such ambiguity, we use `in` to require the parameter to be in a set at definition time.
+
+(It sort of has the same functionality as `type` in programming languages like C, Java, TypeScript, etc. The user can only pass parameters that satisfy certain conditions to a function, proposition, etc.)
+
+<../litex-tutorial/Tutorial/Special_Proof_Strategies.md>:
+# Special Proof Strategies
+
+In mathematics, most proofs are direct, proceeding step by step from assumptions to conclusions. However, many important results also require other proof strategies:
+
+*Proof by Contradiction* – Assume the opposite of what you want to prove, and show that this leads to a contradiction.
+
+*Proof by Cases* – Divide the situation into several possible cases, prove the statement in each case, and conclude that it holds universally. For example, when 1. we know `or($p(x), $q(x))`, 2. we can prove when `$p(x)` is true, `$r(x)` is also true. 3. we can prove when `$q(x)` is true, `$r(x)` is also true. With this, we can prove `$r(x)` is always true.
+
+*Proof by Induction* – Establish a base case, then show that if the statement holds for one step, it also holds for the next, covering all natural numbers. This is called `principle of mathematical induction`. Technically, it is an axiom schema: it is a template for producing an infinite number of axioms.
+
+*Proof over a Finite Set* – Suppose `s` is a finite set, we want to prove `forall x s => $p(x)`. We can simply check each element `x` in `s` one by one whether `$p(x)` holds. This is different from an infinite set: a computer cannot iterate over infinitely many elements in finite time and check whether `$p(x)` holds for each element.
+
+Without these methods, we cannot prove many important theorems. For example, we cannot prove the irrationality of sqrt(2) without proof by contradiction.
+
+We will explore these methods in detail in the following sections.
+
+<../litex-tutorial/Tutorial/Specific_Facts.md>:
+# Specific Facts: Building Blocks of Reasoning
+
+Just like in natural language, facts in mathematics are also composed of verbs and nouns. For example, in the statement 1 < 2, the verb is “<”, while the arguments, 1 and 2, serve as nouns. We call facts of this form specific facts, to distinguish them from universal facts that begin with forall.
+
+Here are some examples:
+
+```litex
+17 < 47 # verb: <, nouns: 17, 47
+17 * 47 = 799 # verb: =, nouns: 17 * 47, 799
+17 != 47 # verb: !=, nouns: 17, 47
+```
+
+Besides builtin propositions (verb) like `>`, `=`, `!=`, you can also use your own propositions using `prop` keyword.
+
+<../litex-tutorial/Tutorial/Statements.md>:
+# Statements
+
+_You can checkout any time you like but you can never leave._
+
+_— Hotel California_
+
+In Litex, any statement has three possible outcomes: **true, unknown, or error**. 
+
+When your factual statement is proven true, or other types of statements are correctly executed, the result is **true**.
+
+For example:
+
+```litex
+1 = 1 # true
+let a R # Successfully declared a real number
+```
+
+If you enter a factual statement but the interpreter cannot find the corresponding known fact or built-in rule, it outputs **unknown**.
+
+```litex
+# The follow code will output unknown
+1 = 2
+```
+
+When you write an invalid sentence, such as operating on an undeclared object or entering a syntactically incorrect sentence, it results in an **error**.
+
+```litex
+# The follow code will output error
+You can checkout any time you like but you can never leave.
+What the F**K are you talking about?
+```
+
+A very common mistake is
+
+```litex
+# The follow code will output error
+1
+```
+
+You can not just write `1` and expect it to be true. `1` is  not a statement. You can write `1 = 1` to make it a statement.
+
+```litex
+1 = 1
+```
+
+Notice that these three kinds of outputs are produced by the Litex kernel **to the outside world of Litex**. They are not passed along to other Litex statements. This is different from programming: in programming, a statement’s output can often be used as the input of another statement (for example, in Python the result of `1 != 2` can be stored in a variable, and that variable can then be passed as a parameter to another statement).
+
+This design actually makes sense. When a human is reasoning about mathematics, they see a sentence, and the outcome of that sentence (whether it’s correct, incorrect, or ill-formed) is registered in their mind—rather than being written down as an intermediate value for the next sentence to consume.
+
+If an **unknown** or **error** occurs, the Litex kernel will terminate the current execution and notify you of the issue. If everything you wrote is correct, then the result is **success**!
+
+
